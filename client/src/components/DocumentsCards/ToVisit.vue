@@ -1,9 +1,7 @@
 <template>
-  <div class="visit-container" :style="current()" :class="{shadow : isInStorage()}">
-    <h2>{{child.name.toUpperCase()}}</h2>
+ <div class="visit-container" :style="current()" :class="{shadow : isInStorage()}">    <h2>{{child.name.toUpperCase()}}</h2>
     <router-link class="button" :to="goToDocument()">READ</router-link>
     <img class="visit__img" :src="earthImgSrc()">
-    <!-- <pre>{{storageTable}}</pre> -->
   </div>
 </template>
 
@@ -15,11 +13,23 @@ export default {
     }
   },
   props : ['parent', 'child', 'childIndex'],
-  mounted: function() {
+  mounted(){
     const order = JSON.parse(localStorage.getItem('cardOrder'));
-    
-    const position = order.indexOf(this.childIndex +1);
-    
+    console.log(order, this.childIndex + 1);
+    if (order !== undefined) {
+      const position = order.indexOf(this.childIndex +1);
+      console.log(position);
+      this.$el.style.order = position;
+    }
+  },
+  updated: function() {
+    const order = JSON.parse(localStorage.getItem('cardOrder'));
+    console.log(order, this.childIndex + 1);
+    if (order !== undefined) {
+      const position = order.indexOf(this.childIndex +1);
+      console.log(position);
+      this.$el.style.order = position;
+    }
   },
   methods : {
     goToDocument(){
@@ -36,16 +46,17 @@ export default {
           }
           return false;
     },
+    
     current(){
-      // console.log(parseInt(this.$route.params.id));
-      // console.log(this.childIndex+1);
 
-      if (parseInt(this.$route.params.id) == this.childIndex+1) {
-        
-        return 'filter : grayscale(0); opacity: 1; box-shadow: 0px 0px 34px 8px rgba(176,176,176,0.6);';
+
+      if (parseInt(this.$route.params.id) === this.childIndex+1) {
+        return `filter : grayscale(0); opacity: 1; box-shadow: 0px 0px 34px 8px rgba(176,176,176,0.6); `;
+      } else {
+        return `order: ${parseInt(this.position)};`
       }
     }
-  },
+  }
 }
 </script>
 

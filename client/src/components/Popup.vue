@@ -1,5 +1,5 @@
 <template>
-  <div class="popup">
+  <div :class="css">
     <div v-if="facts.length && index>0" class="popup__if">
       <div @click="$emit('return-to-earth')" class="arrow-to-earth">
           <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 492 492" style="enable-background:new 0 0 492 492;" xml:space="preserve" width="512px" height="512px" class="">
@@ -13,7 +13,7 @@
       </transition>
       <div class="popup__card">
         <p>{{facts[index-1].popupIntro}}</p>
-        <router-link class="button" :to="indexDoc()">DISCOVER</router-link>
+        <div class="button" @click="changeRoute()">DISCOVER</div>
       </div>
     </div>
   </div>
@@ -32,6 +32,7 @@ export default {
     return {
       facts : [],
       error : '',
+      css: "popup"
     }
   },
   async created() {
@@ -42,14 +43,13 @@ export default {
     }
   },
   methods : {
-    indexDoc() {
-      return `document/${this.index}`
+    changeRoute() {
+      this.css = "popup fadeOut" 
+      setTimeout(() => {
+        this.$router.push({ path: `/document/${this.index}` });
+      }, 1000)  
     }
   },
-  mounted() {
-  
-  }
-
 }
 </script>
 

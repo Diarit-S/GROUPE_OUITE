@@ -1,15 +1,23 @@
-.pane {
-    height: 100vh;
-    width: 100%;
-    overflow: hidden;
+@keyframes transitionEnter{
+  
+  40% {
+    opacity: 1;
+  }
+  
+  to {
+    opacity: 0;
+  }
 }
 
-.fade-leave-active,
-.fade-enter-active {
+@keyframes transitionLeave{
+  to {
+    opacity: 1;
+  }
+}
 
+.fadeIn, .fadeOut {
   &::after {
     content: '';
-    opacity: 0;
     background: black;
     display: block;
     z-index: 100;
@@ -18,52 +26,20 @@
     left: 0;
     height: 100%;
     width: 100%;
+    pointer-events: none;
   }
 }
 
-.fade-leave-active {
-  animation: fake 1s;
+.fadeIn {
+  &::after {
+    opacity: 1;
+    animation: transitionEnter 1s ease forwards;
+  }
+}
 
+.fadeOut {
   &::after {
     opacity: 0;
-    animation: slideLeave 1s ease; 
-  }
-}
-
-.fade-enter-active {
-  animation: fake 1s 1s;
-
-  &::after {
-    opacity: 0;
-    animation: slideEnter 1s ease 1s;
-
-  }
-}
-
-@keyframes slideLeave {
-  0% {
-    opacity: 0;
-  }
-
-  70% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes slideEnter {
-  0% {
-    opacity: 1;
-  }
-
-  30% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
+    animation: transitionLeave 1s ease forwards;
   }
 }
