@@ -191,7 +191,6 @@ export default {
     this.question = this.findQuestion(level)
     this.showAnswer = false
     this.image = this.findImage(level)
-    // console.log(level)
 
     //WEBGL SCENE
     
@@ -419,8 +418,7 @@ export default {
             pickedObject = intersectObj == earth ? null : intersectObj;
             //Change color on hover
             if( pickedObject ){
-              
-                pickedObject.material.color.setHex(0xffc57f);
+              pickedObject.material.color.setHex(0xffc57f);
             }
         }
 

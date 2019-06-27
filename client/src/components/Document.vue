@@ -28,7 +28,6 @@
         <document-footer :parent="facts"></document-footer>
       </div>
     </div>
-    <!-- END OF FACTS -->
   </div>
   
 </template>
@@ -134,6 +133,21 @@ export default {
       } 
     }
     localStorage.setItem('cardOrder', JSON.stringify(this.allCards));
+
+
+    //auto play videos on scroll
+
+    let video = document.querySelector('video');
+    let isPaused = true; /* Flag for auto-paused video */
+    let observer = new IntersectionObserver((entries, observer) => { 
+      entries.forEach(entry => {
+        if(entry.intersectionRatio!=1  && !video.paused){
+          video.pause(); isPaused = true;
+        }
+        else if(isPaused) {video.play(); isPaused=false}
+      });
+    }, {threshold: 1});
+    observer.observe(video);
   },
   computed : {
     // Get the route parameters (in this case, the id)
@@ -162,6 +176,7 @@ export default {
 
 .back-to-earth {
   position: fixed;
+  height: 40px;
   z-index: 30;
   top: 20px;
   left: 25px;

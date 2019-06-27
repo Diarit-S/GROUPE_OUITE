@@ -375,9 +375,8 @@ export default {
             //check it's not the earth
             pickedObject = intersectObj == earth ? null : intersectObj;
             //Change color on hover
-            if( pickedObject ){
-              
-                pickedObject.material.color.setHex(0xffc57f);
+            if (pickedObject ){
+              pickedObject.material.color.setHex(0xffc57f);
             }
         }
 
