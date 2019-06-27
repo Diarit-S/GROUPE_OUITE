@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = 'http://localhost:5000/api/facts/';
+const url = 'https://webdocsgroup.herokuapp.com/api/facts/';
 
 
 class FactService {

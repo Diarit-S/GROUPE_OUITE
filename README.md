@@ -6,15 +6,13 @@
 - Emilie Tombuyses
 - Cheik Kone 
 
+link :https://how-we-build-the-world-together.netlify.com/
+api  : https://webdocsgroup.herokuapp.com/api/facts/
+
 ## Project setup
 Run this command in `root` directory and also in `client/` directory
 ```
 npm install
-```
-## Run MongoDB server
-Run this command in `root` directory
-```
-npm run dev
 ```
 
 ## Compiles and hot-reloads for development

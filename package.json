@@ -2,7 +2,7 @@
   "name": "groupe_ouite",
   "version": "1.0.0",
   "description": "Full Stack VueJs Node Application WebDoc",
-  "main": "index.js",
+  "main": "./server/index.js",
   "scripts": {
     "start": "node server/index.js",
     "dev": "nodemon server/index.js"
