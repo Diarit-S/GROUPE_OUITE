@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <!--<transition name="fade" class="pane"></transition>-->
+    <transition name="fade">
       <router-view></router-view>
-    
+    </transition>
     <footer> 
       <ul class="links">
         <!-- <li>
@@ -105,13 +105,6 @@ export default {
   updated() {
     this.isAsound = this.availableAudio();
   }
-
-  // watch: {
-  //   "$route.params"(to, from) {
-  //     this.isAsound = this.availableAudio()
-  //   }
-  // }
-
 }
 </script>
 

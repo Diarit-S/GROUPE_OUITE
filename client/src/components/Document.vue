@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <router-link to="/earth" class="back-to-earth" id="back-to-earth">
+  <div :class="css">
+    <div class="back-to-earth" id="back-to-earth" @click="changeRoute()">
       <svg class="circle" xmlns="http://www.w3.org/2000/svg" width="78" height="78" viewBox="0 0 78 78">
         <g id="Groupe_4" data-name="Groupe 4" transform="translate(-1057 -287)">
           <g id="Ellipse_4" data-name="Ellipse 4" transform="translate(1057 287)" fill="none" stroke="#ffffff" stroke-width="5">
@@ -16,7 +16,7 @@
         </g>
       </svg>
       <p>Back to earth</p>
-    </router-link>
+    </div>
 
     <p v-if="error">{{error}}</p>
 
@@ -28,7 +28,6 @@
         <document-footer :parent="facts"></document-footer>
       </div>
     </div>
-    <!-- END OF FACTS -->
   </div>
   
 </template>
@@ -66,7 +65,8 @@ export default {
       error : '',
       getStorage : [],
       readed : [1,2,4],
-      scrollControlled : null ,
+      scrollControlled : null,
+      css: "fadeIn"
     }
   },
   // Call facts in db 
@@ -87,11 +87,18 @@ export default {
   },
 
   methods : {
-
+    changeRoute() {
+      this.css = "fadeOut" 
+      setTimeout(() => {
+        this.$router.push({ path: "/earth" });
+      }, 1000)  
+    }
   },
 
 
   updated() {
+    this.css = "fadeIn" 
+      
     window.scrollTo(0,0);
 
     if (localStorage.getItem('readed')) {
@@ -103,11 +110,10 @@ export default {
       }
       localStorage.setItem('readed', JSON.stringify(readed));
       
-    }else {
+    } else {
       var readed = [];
       readed.push(parseInt(this.id));
       localStorage.setItem('readed', JSON.stringify(readed))
-      
     }
 
     this.allCards = [];
@@ -126,22 +132,23 @@ export default {
         
       } 
     }
-    
-
     localStorage.setItem('cardOrder', JSON.stringify(this.allCards));
+
+
+    //auto play videos on scroll
+
+    let video = document.querySelector('video');
+    let isPaused = true; /* Flag for auto-paused video */
+    let observer = new IntersectionObserver((entries, observer) => { 
+      entries.forEach(entry => {
+        if(entry.intersectionRatio!=1  && !video.paused){
+          video.pause(); isPaused = true;
+        }
+        else if(isPaused) {video.play(); isPaused=false}
+      });
+    }, {threshold: 1});
+    observer.observe(video);
   },
-
-  beforeUpdate(){
-
-       //this.scrollControlled = new scrollControlled( 0.2 , window , 900 );
-
-  },
-
-  beforeDestroy(){
-    
-  },
-
-
   computed : {
     // Get the route parameters (in this case, the id)
     id(){
@@ -169,6 +176,7 @@ export default {
 
 .back-to-earth {
   position: fixed;
+  height: 40px;
   z-index: 30;
   top: 20px;
   left: 25px;

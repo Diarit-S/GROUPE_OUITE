@@ -1,8 +1,8 @@
 <template>
-  <div class="background">
+  <div :class="css">
     <div v-if="isEarthRoute()" class="scene3D" id="scene3D" ref="scene3D"></div>
 
-     <router-link class="menu button--small" to="/chapters">Back to menu</router-link>
+     <div class="menu button--small" @click="changeRouteToChapters()">Back to menu</div>
     <div class="title">
       <h1>How we build the world together</h1>
       <h2>Computing - Test your knowledge</h2>
@@ -33,7 +33,7 @@
       <h3>Your score</h3>
       <span class="score">{{ score }} / 10</span>
       <p class="endMessage"> {{ endMessage() }}</p>
-      <router-link class="button" to="/earth">Back to earth</router-link>
+      <div class="button" @click="changeRouteToEarth()">Back to earth</div>
     </div>
 
 
@@ -47,14 +47,14 @@
         <button v-if="level >= questions.length" @click="displayScore()" class="button">See your score</button>
       </div>
     </transition>
-    <router-link  class="game" to="/earth">
+    <div  class="game" @click="changeRouteToEarth()">
       <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="15" cy="15" r="14.25" stroke="white" stroke-width="1.5"/>
         <rect x="19.5078" y="8.90118" width="1.875" height="15" rx="0.9375" transform="rotate(45 19.5078 8.90118)" fill="white"/>
         <rect x="21.0988" y="19.5078" width="1.875" height="15" rx="0.9375" transform="rotate(135 21.0988 19.5078)" fill="white"/>
       </svg>
       <p>Quit the game</p>
-    </router-link>
+    </div>
     <div class="questions-count">
       <span>Question</span>    
       <span>{{ level }} / {{ questions.length }}</span> 
@@ -96,9 +96,22 @@ export default {
       choicecss: "button",
       showScore : false,
       animKey : 1,
+      css: "background fadeIn"
     }
   },
   methods: {
+    changeRouteToChapters() {
+      this.css = "background fadeOut" 
+      setTimeout(() => {
+        this.$router.push({ path: "/chapters" });
+      }, 1000)  
+    },
+    changeRouteToEarth() {
+      this.css = "background fadeOut" 
+      setTimeout(() => {
+        this.$router.push({ path: "/earth" });
+      }, 1000)  
+    },
     findQuestion(level) {
       return quizz.questions.find(
         question => question.id === parseInt(level)
@@ -127,7 +140,10 @@ export default {
       }
     },
     toDocument(question) {
-      this.$router.push({ path: `/document/${question.doc}` });
+      this.css = "background fadeOut" 
+      setTimeout(() => {
+        this.$router.push({ path: `/document/${question.doc}` });
+      }, 1000)  
     },
     nextQuestion() {
       level++
@@ -176,7 +192,13 @@ export default {
       this.question = this.findQuestion(level)
       this.showAnswer = false
       this.image = this.findImage(level)
-      // console.log(level)
+
+      
+      //CONST imports
+      const container = this.$refs.scene3D;
+      const backgroundImg = require( "../assets/images/earth/background.jpg" );
+      const earthImg = require( "../assets/images/earth/earthsubstract.jpg" );
+      const lightsImg = require( "../assets/images/earth/lights.jpg" );
 
       //WEBGL SCENE
       
@@ -192,13 +214,7 @@ export default {
 
         return [x,y,z];
       }
-        
-      //CONST imports
-      const container = this.$refs.scene3D;
-      const backgroundImg = require( "../assets/images/earth/background.jpg" );
-      const earthImg = require( "../assets/images/earth/earthsubstract.jpg" );
-      const lightsImg = require( "../assets/images/earth/lights.jpg" );
-
+      
         
       //Texture loader
       var textureLoader = new THREE.TextureLoader();
@@ -379,7 +395,9 @@ export default {
       });
       */    
 
-      //CLOCK
+     
+
+         //CLOCK
       var clock = new THREE.Clock();
 
       //RENDER
@@ -409,24 +427,24 @@ export default {
               }
           }
 
-          //Earth rotation animation
-          if(!mousehold && pickedObject == null){
-              earth.rotation.y += (Math.PI / 180) * 5 * delta;
-          }
+                  //Earth rotation animation
+        if(!mousehold && pickedObject == null){
+            earth.rotation.y += (Math.PI / 180) * 5 * delta;
+        }
 
-          //Grabbing cursor
-          if ( mousehold && pickedObject == null ) {
-              container.classList.add("grabbing");
-          } else {
-              container.classList.remove("grabbing");
-          }
+        //Grabbing cursor
+        if ( mousehold && pickedObject == null ) {
+            container.classList.add("grabbing");
+        } else {
+            container.classList.remove("grabbing");
+        }
 
-          //Select cursor
-          if ( pickedObject ) {
-              container.classList.add("selected");
-          } else {
-              container.classList.remove("selected");
-          }
+        //Select cursor
+        if ( pickedObject ) {
+            container.classList.add("selected");
+        } else {
+            container.classList.remove("selected");
+        }
 
           //Rendering
           composer.render();

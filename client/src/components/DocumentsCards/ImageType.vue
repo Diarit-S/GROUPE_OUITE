@@ -23,7 +23,6 @@ export default {
   props : ['childId', 'parentName', 'child'],
   data() {
     return {
-      
     }
   },
 

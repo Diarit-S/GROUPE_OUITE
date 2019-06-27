@@ -68,7 +68,7 @@
       "type": "list",
       "question": "Which numeral system is used by computers ?",
       "answers": ["Decimal", "Hexagram", "Hexadecimal", "Binary"],
-      "answer": "answer 2",
+      "answer": "Binary",
       "description": "Everything that a computer does comes down to what’s known as MicroTransistors, tiny switches that can either be on, or off. Thus, we represent “on” by 1, and “off” by 0.",
       "doc": 2
     },
