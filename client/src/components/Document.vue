@@ -1,8 +1,17 @@
 <template>
   <div>
-     <!-- <h1>Facts</h1> -->
-    <!-- CREATE FACT HERE -->
-    <router-link to="/earth" class="back-to-earth">Back to earth</router-link>
+    <router-link to="/earth" class="back-to-earth">
+      <svg xmlns="http://www.w3.org/2000/svg" width="78" height="78" viewBox="0 0 78 78">
+        <g id="Groupe_4" data-name="Groupe 4" transform="translate(-1057 -287)">
+          <g id="Ellipse_4" data-name="Ellipse 4" transform="translate(1057 287)" fill="none" stroke="#ffbf67" stroke-width="5">
+            <circle class="exterieur" cx="39" cy="39" r="36.5" fill="none"/>
+          </g>
+        </g>
+      </svg>
+      <span>Back to earth</span>
+    </router-link>
+
+
     <p v-if="error">{{error}}</p>
     <div>
       <!-- <div v-for="(fact, index) in facts" :item="fact" :index="index" :key="fact._id">
@@ -27,7 +36,6 @@
         <document-footer :parent="facts"></document-footer>
       </div>
     </div>
-    <!-- END OF FACTS -->
   </div>
   
 </template>
@@ -129,6 +137,21 @@ export default {
     console.log(this.allCards);
 
     localStorage.setItem('cardOrder', JSON.stringify(this.allCards));
+
+
+    //auto play videos on scroll
+
+    let video = document.querySelector('video');
+    let isPaused = true; /* Flag for auto-paused video */
+    let observer = new IntersectionObserver((entries, observer) => { 
+      entries.forEach(entry => {
+        if(entry.intersectionRatio!=1  && !video.paused){
+          video.pause(); isPaused = true;
+        }
+        else if(isPaused) {video.play(); isPaused=false}
+      });
+    }, {threshold: 1});
+    observer.observe(video);
   },
 
   beforeUpdate(){
@@ -178,6 +201,7 @@ export default {
 
 .back-to-earth {
   position: fixed;
+  height: 40px;
   z-index: 30;
   top: 20px;
   left: 20px;
@@ -185,6 +209,14 @@ export default {
   text-transform: uppercase;
   font-size: 14px;
   text-decoration: none;
+
+  svg {
+    height: 100%;
+
+    &::after {
+      content: '';
+    }
+  }
 }
 
   

@@ -175,7 +175,6 @@ export default {
     this.question = this.findQuestion(level)
     this.showAnswer = false
     this.image = this.findImage(level)
-    // console.log(level)
 
     //WEBGL SCENE
     var gameVue = this;
@@ -316,21 +315,11 @@ export default {
         return point;
     }
     //Creating the points + Action on click (APPEL VUE.JS)
-    var mathematicsEgyptPoint = placePoint( 'mathematicsEgyptPoint', 30.044420, 31.235712 , () => {
-        console.log("1");
-    });
-    var binaryChinaPoint = placePoint( 'binaryChinaPoint', 35.861660, 104.195397 , () =>{
-        console.log("2");
-    });
-    var computersEnglandPoint = placePoint( 'computersEnglandPoint', 51.5073509, -0.1277583 , ()=>{
-        console.log("3");
-    });
-    var programmingItalyPoint = placePoint( 'programmingItalyPoint', 41.86009225771948, 12.508575535957334 , ()=>{
-        console.log("4");
-    });
-    var internetAmericaPoint = placePoint( 'internetAmericaPoint', 37.090240, -95.712891 , ()=>{
-        console.log("5");
-    });
+    var mathematicsEgyptPoint = placePoint( 'mathematicsEgyptPoint', 30.044420, 31.235712);
+    var binaryChinaPoint = placePoint( 'binaryChinaPoint', 35.861660, 104.195397);
+    var computersEnglandPoint = placePoint( 'computersEnglandPoint', 51.5073509, -0.1277583);
+    var programmingItalyPoint = placePoint( 'programmingItalyPoint', 41.86009225771948, 12.508575535957334);
+    var internetAmericaPoint = placePoint( 'internetAmericaPoint', 37.090240, -95.712891);
 
     //RAYCASTER + DRAG MOUSEMOVE
     //Table for raycasting the points
@@ -404,8 +393,7 @@ export default {
             pickedObject = intersectObj == earth ? null : intersectObj;
             //Change color on hover
             if( pickedObject ){
-                console.log( pickedObject._name );
-                pickedObject.material.color.setHex(0xffc57f);
+              pickedObject.material.color.setHex(0xffc57f);
             }
         }
 

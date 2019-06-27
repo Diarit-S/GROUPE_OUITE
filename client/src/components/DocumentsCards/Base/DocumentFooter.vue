@@ -37,10 +37,7 @@ export default {
   //   eventBus.toVisit = [];
   //   this.parent.forEach(child => {
   //     eventBus.toVisit.push(this.parent.indexOf(child)+1);
-  //   });
-  // console.log(this.toVisit);
-  // console.log(this.parent);
-  
+  //   });  
   }
   
 }
