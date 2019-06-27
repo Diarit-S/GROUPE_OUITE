@@ -122,241 +122,230 @@ export default {
     
     // this.sceneToDelete.destroy();
   },
-
-  destroyed(){
-    
-  },
-
   mounted() {
     
-    
-    setTimeout( () => {
-      document.querySelector('#title').classList.add('appeared');
-      document.querySelector('#menu').classList.add('appeared');
-      document.querySelector('#icons').classList.add('appeared');
-      document.querySelector('#gameBtn').classList.add('appeared');
-    }, 1500);
-
-
-    var earthVue = this;
-    
-    //WEBGL SCENE
-    //Latitude Longitude calcul
-    function calcPosFromLatLonRad(lat,lon,radius){
+    if (this.isEarthRoute()) {
       
-      var phi   = (90-lat)*(Math.PI/180);
-      var theta = (lon+180)*(Math.PI/180);
+    
+      setTimeout( () => {
+        document.querySelector('#title').classList.add('appeared');
+        document.querySelector('#menu').classList.add('appeared');
+        document.querySelector('#icons').classList.add('appeared');
+        document.querySelector('#gameBtn').classList.add('appeared');
+      }, 1500);
 
-      var x = -((radius) * Math.sin(phi)*Math.cos(theta));
-      var z = ((radius) * Math.sin(phi)*Math.sin(theta));
-      var y = ((radius) * Math.cos(phi));
 
-      return [x,y,z];
-    }
-       
-    //CONST imports
-    const container = this.$refs.scene3D;
-    const backgroundImg = require( "../assets/images/earth/background.jpg" );
-    const earthImg = require( "../assets/images/earth/earthsubstract.jpg" );
-    const lightsImg = require( "../assets/images/earth/lights.jpg" );
-
+      var earthVue = this;
       
-    //Texture loader
-    var textureLoader = new THREE.TextureLoader();
-
-    //SCENE
-    var scene = new THREE.Scene();
-    var backgroundTexture = textureLoader.load( backgroundImg );
-    scene.background = backgroundTexture;
-
-    //CAMERA
-    var camera = new THREE.PerspectiveCamera( 45, window.innerWidth/window.innerHeight, 0.1, 1000 );
-    camera.position.z = 9;
-    camera.position.y = 1.8;
-    camera.rotation.x = Math.PI/180 * -10; 
-    scene.add(camera);
-
-    //RENDERER
-    var renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
-    renderer.setSize( window.innerWidth, window.innerHeight );
-    container.appendChild(renderer.domElement);
-
-    //COMPOSER (Post Processing)
-    var composer = new THREE.EffectComposer( renderer );
-    composer.setSize( window.innerWidth, window.innerHeight );
-    let renderPass = new THREE.RenderPass(scene,camera);
-    composer.addPass(renderPass);
-    //Parameters
-    var params = {
-        exposure: 1,
-        bloomStrength: 1,
-        bloomThreshold: 0.4,
-        bloomRadius: 0.5
-    };
-
-    var bloomPass = new THREE.UnrealBloomPass( new THREE.Vector2( window.innerWidth, window.innerHeight ), 1.5, 0.4, 0.85 );
-    bloomPass.exposure = params.exposure;
-    bloomPass.threshold = params.bloomThreshold;
-    bloomPass.strength = params.bloomStrength;
-    bloomPass.radius = params.bloomRadius;
-
-    composer.addPass( bloomPass );
-
-    //Important
-    var copyPass = new THREE.ShaderPass(THREE.CopyShader);
-    copyPass.renderToScreen = true;
-    composer.addPass(copyPass);
-
-    //RESPONSIVE
-    window.addEventListener("resize", () => {
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        composer.setSize( window.innerWidth, window.innerHeight );
-    });
-
-    //LIGHTS
-    //Simple
-    var pointLight = new THREE.PointLight(0xffffff, 1, 10);
-    pointLight.position.set( 2, 2, 5 );
-    scene.add( pointLight );
-    //Blue arc
-    var nblights = 7;
-    var arcAngle = 120;
-    for(let i= 0; i<nblights;i++){
-        var angle  = Math.PI/180 * (arcAngle/(nblights-1)) * i;
-        var x = Math.cos(angle) * 15; 
-        var y = Math.sin(angle) * 15; 
-
-        var directionalLight = new THREE.DirectionalLight( 0x56bbff , 0.6 );
-        directionalLight.position.set( x, y, -22 );
-        directionalLight.target.position.set( 0,0,0 );
-        scene.add( directionalLight );
-    }
-    //Ambient
-    var ambientLight = new THREE.AmbientLight( 0xd8d8d8 );
-    scene.add( ambientLight );
-
-    //EARTH
-    //Textures
-    var earthTexture = textureLoader.load( earthImg );
-    var lightsTexture = textureLoader.load( lightsImg );
-    //Object
-    var earthGeometry = new THREE.SphereGeometry( 2.8, 50, 50 );
-    var earthMaterial = new THREE.MeshStandardMaterial({
-        //color : 0x001B5A,
-        map : earthTexture,
+      //WEBGL SCENE
+      //Latitude Longitude calcul
+      function calcPosFromLatLonRad(lat,lon,radius){
         
-        emissiveMap: lightsTexture,
-        emissive: 0xffefd3,
-        emissiveIntensity : 0.7,
+        var phi   = (90-lat)*(Math.PI/180);
+        var theta = (lon+180)*(Math.PI/180);
 
-        roughness : 0.7,
-        metalness : 0.4
-    })
-    var earth = new THREE.Mesh( earthGeometry, earthMaterial);
-    earth.rotation.y -= 97;
-    scene.add( earth );
-    earth.material.needsUpdate = true;
+        var x = -((radius) * Math.sin(phi)*Math.cos(theta));
+        var z = ((radius) * Math.sin(phi)*Math.sin(theta));
+        var y = ((radius) * Math.cos(phi));
 
-    //POINTS
-    var placePoint = function(name, lat, long, callback ) {
-        var pointGeometry = new THREE.SphereGeometry( 0.13, 32, 32 );
-        var pointMaterial = new THREE.MeshBasicMaterial({
-            color : 0xff9a0c
-        });
+        return [x,y,z];
+      }
+        
+      //CONST imports
+      const container = this.$refs.scene3D;
+      const backgroundImg = require( "../assets/images/earth/background.jpg" );
+      const earthImg = require( "../assets/images/earth/earthsubstract.jpg" );
+      const lightsImg = require( "../assets/images/earth/lights.jpg" );
 
-        var point = new THREE.Mesh( pointGeometry, pointMaterial );
-        earth.add( point );
+        
+      //Texture loader
+      var textureLoader = new THREE.TextureLoader();
 
-        var coord = calcPosFromLatLonRad( lat, long, 2.7);
-        point.position.set( coord[0], coord[1], coord[2] );
-        point._name = name;
-        point._callback = callback;
+      //SCENE
+      var scene = new THREE.Scene();
+      var backgroundTexture = textureLoader.load( backgroundImg );
+      scene.background = backgroundTexture;
 
-        return point;
-    }
-    //Creating the points + Action on click (APPEL VUE.JS)
-    var mathematicsEgyptPoint = placePoint( 'mathematicsEgyptPoint', 30.044420, 31.235712 , () => {
-        this.callPopup(1);
-    });
-    var binaryChinaPoint = placePoint( 'binaryChinaPoint', 35.861660, 104.195397 , () =>{
-        this.callPopup(2);
-    });
-    var computersEnglandPoint = placePoint( 'computersEnglandPoint', 51.5073509, -0.1277583 , ()=>{
-        this.callPopup(3);
-    });
-    var programmingItalyPoint = placePoint( 'programmingItalyPoint', 41.86009225771948, 12.508575535957334 , ()=>{
-        this.callPopup(4);
-    });
-    var internetAmericaPoint = placePoint( 'internetAmericaPoint', 37.090240, -95.712891 , ()=>{
-        this.callPopup(5);
-    });
+      //CAMERA
+      var camera = new THREE.PerspectiveCamera( 45, window.innerWidth/window.innerHeight, 0.1, 1000 );
+      camera.position.z = 9;
+      camera.position.y = 1.8;
+      camera.rotation.x = Math.PI/180 * -10; 
+      scene.add(camera);
 
-    //RAYCASTER + DRAG MOUSEMOVE
-    //Table for raycasting the points
-    var points = [mathematicsEgyptPoint, binaryChinaPoint, computersEnglandPoint, programmingItalyPoint, internetAmericaPoint, earth];
-    var pickedObject;
-    var raycast = new THREE.Raycaster();
-    //Init Drag mousemove
-    var normalizedPosition = { x : 0, y : 0 };
-    var mousehold = false;
-    var startMouseX = 0;
-    var mouseDelta = 0;
-    var earthRotY = 0;
-    
-    //Drag Listeners
-    this.$refs.scene3D.addEventListener("mousedown", function(event) {
-        if ( pickedObject ) {
-            pickedObject._callback();
-            //Move the earth
-            TweenMax.to(camera.position,2,{x: -2, z: 6 , ease: Power4.easeInOut});
-            
-        } else {
-            mousehold = true;
-            startMouseX = event.clientX;
-            earthRotY = earth.rotation.y; 
-        }
+      //RENDERER
+      var renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
+      renderer.setSize( window.innerWidth, window.innerHeight );
+      container.appendChild(renderer.domElement);
 
-        earthVue.showInts = false;
-    });
+      //COMPOSER (Post Processing)
+      var composer = new THREE.EffectComposer( renderer );
+      composer.setSize( window.innerWidth, window.innerHeight );
+      let renderPass = new THREE.RenderPass(scene,camera);
+      composer.addPass(renderPass);
+      //Parameters
+      var params = {
+          exposure: 1,
+          bloomStrength: 1,
+          bloomThreshold: 0.4,
+          bloomRadius: 0.5
+      };
 
-    this.$refs.scene3D.addEventListener("mouseup",function(){
-        mousehold = false;
-    });
+      var bloomPass = new THREE.UnrealBloomPass( new THREE.Vector2( window.innerWidth, window.innerHeight ), 1.5, 0.4, 0.85 );
+      bloomPass.exposure = params.exposure;
+      bloomPass.threshold = params.bloomThreshold;
+      bloomPass.strength = params.bloomStrength;
+      bloomPass.radius = params.bloomRadius;
 
-    this.$refs.scene3D.addEventListener("mousemove", function(event) {
-        if ( mousehold ) {
-            mouseDelta = (event.clientX - startMouseX) / window.innerWidth;
-            earth.rotation.y = earthRotY + mouseDelta * Math.PI * 1; //rotation speed
-        }
+      composer.addPass( bloomPass );
 
-        normalizedPosition.x = (event.clientX / container.clientWidth ) *  2 - 1;
-        normalizedPosition.y = (event.clientY / container.clientHeight) * -2 + 1;  //flip Y because of canvas coord
-    });
+      //Important
+      var copyPass = new THREE.ShaderPass(THREE.CopyShader);
+      copyPass.renderToScreen = true;
+      composer.addPass(copyPass);
 
-    //BackBtn animation
-    /*
-    document.getElementById("backBtn").addEventListener("click",function(){
+      //RESPONSIVE
+      window.addEventListener("resize", () => {
+          camera.aspect = window.innerWidth / window.innerHeight;
+          camera.updateProjectionMatrix();
+          renderer.setSize(window.innerWidth, window.innerHeight);
+          composer.setSize( window.innerWidth, window.innerHeight );
+      });
+
+      //LIGHTS
+      //Simple
+      var pointLight = new THREE.PointLight(0xffffff, 1, 10);
+      pointLight.position.set( 2, 2, 5 );
+      scene.add( pointLight );
+      //Blue arc
+      var nblights = 7;
+      var arcAngle = 120;
+      for(let i= 0; i<nblights;i++){
+          var angle  = Math.PI/180 * (arcAngle/(nblights-1)) * i;
+          var x = Math.cos(angle) * 15; 
+          var y = Math.sin(angle) * 15; 
+
+          var directionalLight = new THREE.DirectionalLight( 0x56bbff , 0.6 );
+          directionalLight.position.set( x, y, -22 );
+          directionalLight.target.position.set( 0,0,0 );
+          scene.add( directionalLight );
+      }
+      //Ambient
+      var ambientLight = new THREE.AmbientLight( 0xd8d8d8 );
+      scene.add( ambientLight );
+
+      //EARTH
+      //Textures
+      var earthTexture = textureLoader.load( earthImg );
+      var lightsTexture = textureLoader.load( lightsImg );
+      //Object
+      var earthGeometry = new THREE.SphereGeometry( 2.8, 50, 50 );
+      var earthMaterial = new THREE.MeshStandardMaterial({
+          //color : 0x001B5A,
+          map : earthTexture,
+          
+          emissiveMap: lightsTexture,
+          emissive: 0xffefd3,
+          emissiveIntensity : 0.7,
+
+          roughness : 0.7,
+          metalness : 0.4
+      })
+      var earth = new THREE.Mesh( earthGeometry, earthMaterial);
+      earth.rotation.y -= 97;
+      scene.add( earth );
+      earth.material.needsUpdate = true;
+
+      //POINTS
+      var placePoint = function(name, lat, long, callback ) {
+          var pointGeometry = new THREE.SphereGeometry( 0.13, 32, 32 );
+          var pointMaterial = new THREE.MeshBasicMaterial({
+              color : 0xff9a0c
+          });
+
+          var point = new THREE.Mesh( pointGeometry, pointMaterial );
+          earth.add( point );
+
+          var coord = calcPosFromLatLonRad( lat, long, 2.7);
+          point.position.set( coord[0], coord[1], coord[2] );
+          point._name = name;
+          point._callback = callback;
+
+          return point;
+      }
+      //Creating the points + Action on click (APPEL VUE.JS)
+      var mathematicsEgyptPoint = placePoint( 'mathematicsEgyptPoint', 30.044420, 31.235712 , () => {
+          this.callPopup(1);
+      });
+      var binaryChinaPoint = placePoint( 'binaryChinaPoint', 35.861660, 104.195397 , () =>{
+          this.callPopup(2);
+      });
+      var computersEnglandPoint = placePoint( 'computersEnglandPoint', 51.5073509, -0.1277583 , ()=>{
+          this.callPopup(3);
+      });
+      var programmingItalyPoint = placePoint( 'programmingItalyPoint', 41.86009225771948, 12.508575535957334 , ()=>{
+          this.callPopup(4);
+      });
+      var internetAmericaPoint = placePoint( 'internetAmericaPoint', 37.090240, -95.712891 , ()=>{
+          this.callPopup(5);
+      });
+
+      //RAYCASTER + DRAG MOUSEMOVE
+      //Table for raycasting the points
+      var points = [mathematicsEgyptPoint, binaryChinaPoint, computersEnglandPoint, programmingItalyPoint, internetAmericaPoint, earth];
+      var pickedObject;
+      var raycast = new THREE.Raycaster();
+      //Init Drag mousemove
+      var normalizedPosition = { x : 0, y : 0 };
+      var mousehold = false;
+      var startMouseX = 0;
+      var mouseDelta = 0;
+      var earthRotY = 0;
+      
+      //Drag Listeners
+      this.$refs.scene3D.addEventListener("mousedown", function(event) {
+          if ( pickedObject ) {
+              pickedObject._callback();
+              //Move the earth
+              TweenMax.to(camera.position,2,{x: -2, z: 6 , ease: Power4.easeInOut});
+              
+          } else {
+              mousehold = true;
+              startMouseX = event.clientX;
+              earthRotY = earth.rotation.y; 
+          }
+
+          earthVue.showInts = false;
+      });
+
+      this.$refs.scene3D.addEventListener("mouseup",function(){
+          mousehold = false;
+      });
+
+      this.$refs.scene3D.addEventListener("mousemove", function(event) {
+          if ( mousehold ) {
+              mouseDelta = (event.clientX - startMouseX) / window.innerWidth;
+              earth.rotation.y = earthRotY + mouseDelta * Math.PI * 1; //rotation speed
+          }
+
+          normalizedPosition.x = (event.clientX / container.clientWidth ) *  2 - 1;
+          normalizedPosition.y = (event.clientY / container.clientHeight) * -2 + 1;  //flip Y because of canvas coord
+      });
+
+      //BackBtn animation
+      /*
+      document.getElementById("backBtn").addEventListener("click",function(){
+          TweenMax.to(camera.position,2,{x: 0, z: 9 ,ease: Power4.easeInOut});
+      });
+      */ 
+      this.earthBack = () => {
         TweenMax.to(camera.position,2,{x: 0, z: 9 ,ease: Power4.easeInOut});
-    });
-    */ 
-    this.earthBack = () => {
-      TweenMax.to(camera.position,2,{x: 0, z: 9 ,ease: Power4.easeInOut});
-    }
-  
-
-
-    // console.log(this.$refs);
-    
+      }
     
 
-    //CLOCK
-    var clock = new THREE.Clock();
 
-    //RENDER
-    var render = function() {
-        var delta = clock.getDelta();
+      // console.log(this.$refs);
+      
       
         //Points color init
         for(let i = 0; i < points.length; i++){
@@ -380,11 +369,6 @@ export default {
             }
         }
 
-        //Earth rotation animation
-        if(!mousehold && pickedObject == null){
-            earth.rotation.y += (Math.PI / 180) * 5 * delta;
-        }
-
         //Grabbing cursor
         if ( mousehold && pickedObject == null ) {
             container.classList.add("grabbing");
@@ -398,15 +382,65 @@ export default {
         } else {
             container.classList.remove("selected");
         }
+    
 
-        //Rendering
-        composer.render();
-        requestAnimationFrame( render );
+      //CLOCK
+      var clock = new THREE.Clock();
+
+      //RENDER
+      var render = function() {
+          var delta = clock.getDelta();
+        
+          //Points color init
+          for(let i = 0; i < points.length; i++){
+              if ( points[i] != earth ){
+                  points[i].material.color.setHex(0xff9a20);
+              }
+          }
+
+          //Raycasting
+          raycast.setFromCamera(normalizedPosition, camera);
+          //get the list of objects the ray intersected
+          const intersectedObjects = raycast.intersectObjects( points );
+          if (intersectedObjects.length) {
+              //pick the first object. It's the closest one
+              var intersectObj = intersectedObjects[0].object;
+              //check it's not the earth
+              pickedObject = intersectObj == earth ? null : intersectObj;
+              //Change color on hover
+              if( pickedObject ){
+                
+                  pickedObject.material.color.setHex(0xffc57f);
+              }
+          }
+
+          //Earth rotation animation
+          if(!mousehold && pickedObject == null){
+              earth.rotation.y += (Math.PI / 180) * 5 * delta;
+          }
+
+          //Grabbing cursor
+          if ( mousehold && pickedObject == null ) {
+              container.classList.add("grabbing");
+          } else {
+              container.classList.remove("grabbing");
+          }
+
+          //Select cursor
+          if ( pickedObject ) {
+              container.classList.add("selected");
+          } else {
+              container.classList.remove("selected");
+          }
+
+          //Rendering
+          composer.render();
+          requestAnimationFrame( render );
+      }
+
+      render();
+      TweenMax.from(camera.position,2.5,{y:10, delay:1, ease: Power4.easeOut});
     }
-
-    render();
-    TweenMax.from(camera.position,2.5,{y:10, delay:1, ease: Power4.easeOut});
-
   },
 }
 

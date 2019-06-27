@@ -13,21 +13,20 @@ export default {
     }
   },
   props : ['parent', 'child', 'childIndex'],
-  mounted(){
-    const order = JSON.parse(localStorage.getItem('cardOrder'));
-    console.log(order, this.childIndex + 1);
-    if (order !== undefined) {
+  mounted: function() {
+    if (localStorage.getItem('cardOrder')) {
+      console.log('abc');
+      const order = JSON.parse(localStorage.getItem('cardOrder'));
       const position = order.indexOf(this.childIndex +1);
-      console.log(position);
       this.$el.style.order = position;
     }
+    
   },
-  updated: function() {
-    const order = JSON.parse(localStorage.getItem('cardOrder'));
-    console.log(order, this.childIndex + 1);
-    if (order !== undefined) {
+  updated() {
+     if (localStorage.getItem('cardOrder')) {
+      console.log('abc');
+      const order = JSON.parse(localStorage.getItem('cardOrder'));
       const position = order.indexOf(this.childIndex +1);
-      console.log(position);
       this.$el.style.order = position;
     }
   },
@@ -80,9 +79,15 @@ export default {
     }
 
     .visit__img {
-      align-self: flex-end;
+      // align-self: flex-end;
       //transform: translateY(100px);
       transform: scale(0.9);
+    }
+
+    @media (max-width: 1400px) { 
+      h2 {
+        font-size: 1.5em;
+      }
     }
   } 
 
