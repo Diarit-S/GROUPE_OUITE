@@ -3,11 +3,6 @@
     <router-view></router-view>
     <footer> 
       <ul class="links">
-        <!-- <li>
-          <svg width="20" height="20" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M15.3281 12.848C14.1737 12.848 13.1443 13.3961 12.4859 14.2432L6.97225 11.1745C7.10144 10.8049 7.17229 10.4063 7.17229 9.99518C7.17229 9.57992 7.10144 9.18543 6.96808 8.8117L12.4775 5.74712C13.1318 6.5984 14.1654 7.15068 15.3239 7.15068C17.2993 7.15068 18.9122 5.5478 18.9122 3.57534C18.9122 1.60288 17.3035 0 15.3239 0C13.3444 0 11.7357 1.60288 11.7357 3.57534C11.7357 3.9906 11.8066 4.38924 11.9399 4.75882L6.43464 7.8234C5.78034 6.96797 4.7468 6.41984 3.58823 6.41984C1.61283 6.41984 0 8.02272 0 9.99518C0 11.9676 1.61283 13.5705 3.59239 13.5705C4.75096 13.5705 5.78451 13.0182 6.44297 12.1628L11.9524 15.2315C11.8191 15.6053 11.744 16.0081 11.744 16.4233C11.744 18.3916 13.3527 19.9987 15.3323 19.9987C17.3118 19.9987 18.9205 18.3958 18.9205 16.4233C18.9205 14.4509 17.3077 12.848 15.3281 12.848ZM15.3281 1.12534C16.6867 1.12534 17.7911 2.22576 17.7911 3.57949C17.7911 4.93322 16.6867 6.03365 15.3281 6.03365C13.9695 6.03365 12.8651 4.93322 12.8651 3.57949C12.8651 2.22576 13.9737 1.12534 15.3281 1.12534ZM3.59239 12.4493C2.23379 12.4493 1.1294 11.3489 1.1294 9.99518C1.1294 8.64145 2.23379 7.54102 3.59239 7.54102C4.951 7.54102 6.05539 8.64145 6.05539 9.99518C6.05539 11.3489 4.94684 12.4493 3.59239 12.4493ZM15.3281 18.8733C13.9695 18.8733 12.8651 17.7729 12.8651 16.4192C12.8651 15.0654 13.9695 13.965 15.3281 13.965C16.6867 13.965 17.7911 15.0654 17.7911 16.4192C17.7911 17.7729 16.6867 18.8733 15.3281 18.8733Z" fill="white"/>
-          </svg>
-        </li> -->
         <li v-if="isAsound"> 
           <audio :src="sound" autoplay loop ref="audio"></audio>
           <div @click="mute($refs.audio, soundIcon)" :class="soundIcon"></div>
@@ -55,7 +50,6 @@ export default {
     }
   },
   methods: {
-    
     fullScreen() {
       if (this.isFullScreen) {
         screenService.toWindowedScreen()
@@ -64,16 +58,13 @@ export default {
         screenService.toFullScreen(screen)
       }
     },
-    
     screenState() {
       let screenState = document.fullScreen || document.mozFullScreen || document.webkitIsFullScreen
       return screenState
     },
-
     mute(audio, icon) {
-      this.soundIcon = soundService.mute(audio, icon);
+      this.soundIcon = soundService.mute(audio, icon)
     },
-
     availableAudio() {
       if (this.$route.fullPath === "/chapters" || this.$route.fullPath === "/earth" || this.$route.fullPath === "/game") {
         return true
@@ -82,7 +73,6 @@ export default {
       }
     }
   },
-
   mounted() {
     document.addEventListener("fullscreenchange", () => {
       if (document.fullscreenElement) {
@@ -91,23 +81,14 @@ export default {
         this.isFullScreen = false
       }
     });
-    
+
     //restore sounds settings
-  
     if (this.isAsound) {
       this.soundIcon = soundService.restoreAudioSettings(this.$refs.audio, this.soundIcon);
     }
-
   },
-
   updated() {
     this.isAsound = this.availableAudio();
   }
 }
 </script>
-
-<style lang='scss' scoped>
-
-
-  
-</style>

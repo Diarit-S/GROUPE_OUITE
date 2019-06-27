@@ -11,16 +11,16 @@
     </div>
     <transition name="iconAnim">
       <div class="icons" id="icons" v-if="showInts">
-          <div class="icon">
-            <svg class="dragIcon" width="28" height="30" viewBox="0 0 28 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M25.3346 10.3748H25.2888C24.6549 10.3771 24.0457 10.6209 23.5852 11.0562C23.2258 10.0061 22.2724 9.25384 21.1524 9.25384C20.4587 9.26289 19.7994 9.55722 19.3301 10.068C18.9061 9.17316 18.0304 8.57319 17.021 8.57319H16.9723C16.3914 8.57319 15.8259 8.74612 15.4398 9.08996V2.72762C15.4398 1.22356 14.2735 0 12.8502 0C11.4283 0 10.2666 1.22255 10.2656 2.72561L10.2545 15.3085L9.49117 14.3806C8.87688 13.6157 7.97228 13.1407 6.99403 13.0688C6.0354 13.0032 5.09234 13.337 4.38832 13.991L3.77327 14.5012C3.58652 14.656 3.53324 14.9202 3.64509 15.1351L9.62639 26.6186C10.7145 28.7091 12.7843 30 15.0281 30H21.7368C25.1388 30 27.9094 27.0595 27.9129 23.4353C27.9144 21.8162 27.9162 20.6117 27.9172 19.6307C27.9207 16.9893 27.9219 16.0018 27.9151 13.0942C27.9116 11.5941 26.7542 10.3748 25.3346 10.3748ZM26.8876 19.6332C26.8866 20.6142 26.8849 21.8152 26.8834 23.4343C26.8804 26.4912 24.5717 28.9705 21.7368 28.9705H15.0281C13.1694 28.9705 11.4494 27.892 10.5393 26.1436L4.74976 15.0248L5.05489 14.7739C5.06143 14.7684 5.06821 14.7636 5.0745 14.7576C5.57141 14.2901 6.2405 14.05 6.9214 14.0955C7.61687 14.1488 8.25932 14.4889 8.6944 15.0343L10.3681 17.072C10.5061 17.2399 10.7346 17.303 10.9392 17.2298C11.1438 17.1567 11.2805 16.9629 11.2808 16.7455L11.2906 2.72661C11.2911 1.7911 11.9956 1.02977 12.8507 1.02977C13.7055 1.02977 14.4103 1.79135 14.4103 2.72762V11.1814C14.4103 11.2106 14.409 11.2397 14.409 11.2691C14.409 11.282 14.4103 11.294 14.4103 11.3063V14.9215C14.4103 15.2057 14.6408 15.4362 14.925 15.4362C15.2093 15.4362 15.4398 15.2057 15.4398 14.9215V11.1988C15.4398 10.2954 16.1388 9.60271 16.9723 9.60271H17.021C17.8761 9.60271 18.5927 10.3334 18.5927 11.2699V14.5766C18.5927 14.8609 18.8232 15.0914 19.1075 15.0914C19.3917 15.0914 19.6222 14.8609 19.6222 14.5766V11.982C19.6222 11.0457 20.3089 10.2839 21.169 10.2839C22.0243 10.2839 22.7108 11.0457 22.7108 11.982V14.4298C22.7108 14.7141 22.9412 14.9446 23.2255 14.9446C23.5098 14.9446 23.7403 14.7141 23.7403 14.4298V13.1045C23.7403 12.168 24.4335 11.4044 25.2888 11.4044H25.3346C26.1876 11.4044 26.8836 12.1649 26.8856 13.0984C26.8924 16.0043 26.8912 16.9931 26.8876 19.6332Z" fill="white"/>
-              <path d="M17.2414 5.09852H23.9129L22.7168 6.29467C22.5836 6.42412 22.5303 6.61514 22.5775 6.7946C22.6248 6.97432 22.765 7.11457 22.9448 7.16182C23.1242 7.20882 23.3152 7.15554 23.4447 7.02232L25.512 4.95525C25.7131 4.75417 25.7131 4.42817 25.512 4.22735L23.4447 2.16027C23.2434 1.9612 22.9191 1.96221 22.719 2.16228C22.5187 2.3626 22.5177 2.68684 22.7168 2.88817L23.8976 4.069H17.2414C16.9572 4.069 16.7267 4.29948 16.7267 4.58376C16.7267 4.86803 16.9572 5.09852 17.2414 5.09852Z" fill="white"/>
-              <path d="M1.74969 5.09852H8.36187C8.64615 5.09852 8.87663 4.86803 8.87663 4.58376C8.87663 4.29948 8.64615 4.069 8.36187 4.069H1.76502L2.94585 2.88817C3.14492 2.68684 3.14391 2.3626 2.94359 2.16228C2.74351 1.96221 2.41928 1.9612 2.21795 2.16027L0.15062 4.22735C-0.0502065 4.42842 -0.0502065 4.75442 0.15062 4.95525L2.21795 7.02232C2.34764 7.15378 2.53791 7.20556 2.71637 7.15805C2.89483 7.1108 3.03407 6.9713 3.08158 6.79284C3.12908 6.61439 3.0773 6.42437 2.94585 6.29442L1.74969 5.09852Z" fill="white"/>
-            </svg>
-            <p>Drag to move around</p>
-          </div>
-          <div class="icon">
-            <svg class="clickIcon--strokes" width="40" height="19" viewBox="0 0 40 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <div class="icon">
+          <svg class="dragIcon" width="28" height="30" viewBox="0 0 28 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M25.3346 10.3748H25.2888C24.6549 10.3771 24.0457 10.6209 23.5852 11.0562C23.2258 10.0061 22.2724 9.25384 21.1524 9.25384C20.4587 9.26289 19.7994 9.55722 19.3301 10.068C18.9061 9.17316 18.0304 8.57319 17.021 8.57319H16.9723C16.3914 8.57319 15.8259 8.74612 15.4398 9.08996V2.72762C15.4398 1.22356 14.2735 0 12.8502 0C11.4283 0 10.2666 1.22255 10.2656 2.72561L10.2545 15.3085L9.49117 14.3806C8.87688 13.6157 7.97228 13.1407 6.99403 13.0688C6.0354 13.0032 5.09234 13.337 4.38832 13.991L3.77327 14.5012C3.58652 14.656 3.53324 14.9202 3.64509 15.1351L9.62639 26.6186C10.7145 28.7091 12.7843 30 15.0281 30H21.7368C25.1388 30 27.9094 27.0595 27.9129 23.4353C27.9144 21.8162 27.9162 20.6117 27.9172 19.6307C27.9207 16.9893 27.9219 16.0018 27.9151 13.0942C27.9116 11.5941 26.7542 10.3748 25.3346 10.3748ZM26.8876 19.6332C26.8866 20.6142 26.8849 21.8152 26.8834 23.4343C26.8804 26.4912 24.5717 28.9705 21.7368 28.9705H15.0281C13.1694 28.9705 11.4494 27.892 10.5393 26.1436L4.74976 15.0248L5.05489 14.7739C5.06143 14.7684 5.06821 14.7636 5.0745 14.7576C5.57141 14.2901 6.2405 14.05 6.9214 14.0955C7.61687 14.1488 8.25932 14.4889 8.6944 15.0343L10.3681 17.072C10.5061 17.2399 10.7346 17.303 10.9392 17.2298C11.1438 17.1567 11.2805 16.9629 11.2808 16.7455L11.2906 2.72661C11.2911 1.7911 11.9956 1.02977 12.8507 1.02977C13.7055 1.02977 14.4103 1.79135 14.4103 2.72762V11.1814C14.4103 11.2106 14.409 11.2397 14.409 11.2691C14.409 11.282 14.4103 11.294 14.4103 11.3063V14.9215C14.4103 15.2057 14.6408 15.4362 14.925 15.4362C15.2093 15.4362 15.4398 15.2057 15.4398 14.9215V11.1988C15.4398 10.2954 16.1388 9.60271 16.9723 9.60271H17.021C17.8761 9.60271 18.5927 10.3334 18.5927 11.2699V14.5766C18.5927 14.8609 18.8232 15.0914 19.1075 15.0914C19.3917 15.0914 19.6222 14.8609 19.6222 14.5766V11.982C19.6222 11.0457 20.3089 10.2839 21.169 10.2839C22.0243 10.2839 22.7108 11.0457 22.7108 11.982V14.4298C22.7108 14.7141 22.9412 14.9446 23.2255 14.9446C23.5098 14.9446 23.7403 14.7141 23.7403 14.4298V13.1045C23.7403 12.168 24.4335 11.4044 25.2888 11.4044H25.3346C26.1876 11.4044 26.8836 12.1649 26.8856 13.0984C26.8924 16.0043 26.8912 16.9931 26.8876 19.6332Z" fill="white"/>
+            <path d="M17.2414 5.09852H23.9129L22.7168 6.29467C22.5836 6.42412 22.5303 6.61514 22.5775 6.7946C22.6248 6.97432 22.765 7.11457 22.9448 7.16182C23.1242 7.20882 23.3152 7.15554 23.4447 7.02232L25.512 4.95525C25.7131 4.75417 25.7131 4.42817 25.512 4.22735L23.4447 2.16027C23.2434 1.9612 22.9191 1.96221 22.719 2.16228C22.5187 2.3626 22.5177 2.68684 22.7168 2.88817L23.8976 4.069H17.2414C16.9572 4.069 16.7267 4.29948 16.7267 4.58376C16.7267 4.86803 16.9572 5.09852 17.2414 5.09852Z" fill="white"/>
+            <path d="M1.74969 5.09852H8.36187C8.64615 5.09852 8.87663 4.86803 8.87663 4.58376C8.87663 4.29948 8.64615 4.069 8.36187 4.069H1.76502L2.94585 2.88817C3.14492 2.68684 3.14391 2.3626 2.94359 2.16228C2.74351 1.96221 2.41928 1.9612 2.21795 2.16027L0.15062 4.22735C-0.0502065 4.42842 -0.0502065 4.75442 0.15062 4.95525L2.21795 7.02232C2.34764 7.15378 2.53791 7.20556 2.71637 7.15805C2.89483 7.1108 3.03407 6.9713 3.08158 6.79284C3.12908 6.61439 3.0773 6.42437 2.94585 6.29442L1.74969 5.09852Z" fill="white"/>
+          </svg>
+          <p>Drag to move around</p>
+        </div>
+        <div class="icon">
+          <svg class="clickIcon--strokes" width="40" height="19" viewBox="0 0 40 19" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g clip-path="url(#clip0)">
               <path d="M4.47 2.532C3.93428 1.5655 2.7165 1.21628 1.75 1.752C0.783502 2.28772 0.434284 3.5055 0.97 4.472L7.76 16.722C8.29572 17.6885 9.5135 18.0377 10.48 17.502C11.4465 16.9663 11.7957 15.7485 11.26 14.782L4.47 2.532Z" fill="white"/>
               <path d="M38.8619 4.34648C39.3974 3.3804 39.0483 2.16312 38.0822 1.62762C37.1162 1.09211 35.8989 1.44116 35.3634 2.40724L28.5761 14.6519C28.0405 15.618 28.3896 16.8353 29.3557 17.3708C30.3218 17.9063 31.539 17.5572 32.0745 16.5912L38.8619 4.34648Z" fill="white"/>
@@ -31,17 +31,17 @@
               <rect width="39.831" height="18.465" fill="white"/>
               </clipPath>
               </defs>
-            </svg>
-            <svg class="clickIcon" width="22" height="30" viewBox="0 0 22 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          </svg>
+          <svg class="clickIcon" width="22" height="30" viewBox="0 0 22 30" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M19.3873 10.4003H19.3415C18.7157 10.3964 18.1116 10.6276 17.6483 11.0483C17.2788 10.0065 16.3256 9.25477 15.2085 9.25477C14.5231 9.25477 13.8675 9.53462 13.3933 10.0293C12.9619 9.14293 12.087 8.52731 11.0805 8.52731H11.0319C10.4832 8.52626 9.95063 8.71466 9.52471 9.06062V2.74628C9.52471 1.23177 8.34834 0 6.91484 0C5.48264 0 4.31149 1.23073 4.31045 2.74419L4.30209 11.0609L1.01361 14.1531C0.0603818 15.0449 -0.25527 16.4262 0.215595 17.6436L3.64909 26.5798C3.65615 26.5986 3.66451 26.601 3.67366 26.619C4.76433 28.7144 6.83958 30 9.08991 30H15.7925C19.2033 30 21.9809 27.0609 21.9843 23.4283C21.9859 21.8093 21.9875 20.6091 21.9888 19.6284C21.9922 16.9903 21.9935 16.0235 21.9867 13.1192C21.983 11.6088 20.8171 10.4003 19.3873 10.4003ZM20.9182 19.635C20.9172 20.6159 20.9154 21.8079 20.9141 23.4272C20.9112 26.4703 18.6136 28.9297 15.7925 28.9297H9.08991C7.24956 28.9297 5.54614 27.8759 4.63681 26.151L1.21403 17.2516C0.899943 16.4416 1.11029 15.5218 1.74551 14.9287L4.29869 12.5291L4.29555 16.7523C4.29529 17.0483 4.53438 17.289 4.83044 17.2903C5.12701 17.29 5.36793 17.0504 5.36976 16.7541L5.37734 11.2947V11.2906L5.37943 2.74497C5.38021 1.82179 6.07423 1.07029 6.91719 1.07029C7.76015 1.07029 8.45442 1.82205 8.45442 2.74628V11.1921C8.45442 11.2213 8.45312 11.2508 8.45312 11.2806C8.45312 11.2934 8.45442 11.306 8.45442 11.3188V14.93C8.45442 15.2255 8.69404 15.4651 8.98957 15.4651C9.2851 15.4651 9.52471 15.2255 9.52471 14.93V11.2101C9.52471 10.319 10.2104 9.59812 11.0319 9.59812H11.0805C11.9232 9.59812 12.6018 10.3575 12.6018 11.2817V14.5858C12.6018 14.8814 12.8414 15.121 13.1369 15.121C13.4325 15.121 13.6721 14.8814 13.6721 14.5858V11.9929C13.6721 11.0687 14.3651 10.317 15.213 10.317C16.0559 10.317 16.7492 11.0687 16.7492 11.9929V14.4387C16.7492 14.7343 16.9888 14.9739 17.2843 14.9739C17.5798 14.9739 17.8195 14.7343 17.8195 14.4387V13.1142C17.8195 12.1902 18.4983 11.4706 19.3415 11.4706H19.3873C20.2281 11.4706 20.9141 12.2041 20.9161 13.1257C20.9232 16.028 20.9216 16.9984 20.9182 19.635Z" fill="white"/>
-            </svg>
-            <p>Click on the points to discover</p>
-          </div>
+          </svg>
+          <p>Click on the points to discover</p>
+        </div>
       </div>
     </transition>
-     <transition name="popanim">
-       <popup @return-to-earth="closePopup()" class="popup" :index="index" v-if="display"></popup>
-     </transition>
+    <transition name="popanim">
+      <popup @return-to-earth="closePopup()" class="popup" :index="index" v-if="display"></popup>
+    </transition>
     <div class="game" @click="changeRouteToGame()" id="gameBtn">
       <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="15" cy="15" r="14.25" stroke="white" stroke-width="1.5"/>
@@ -54,7 +54,6 @@
       </svg>
       <p>Test your knowledge</p>
     </div>
-
   </div> 
 </template>
 
@@ -94,7 +93,6 @@ export default {
     },
     closePopup() {
       this.display = false;
-      
       this.earthBack();
     },
     isEarthRoute(){
@@ -115,25 +113,19 @@ export default {
       }, 1000)  
     }
   },
-
-  beforeDestroy: function () {
-    // this.sceneToDelete = this.$el.querySelector('.scene3D');
-    // console.log(this.sceneToDelete)
-    
-    // this.sceneToDelete.destroy();
+  beforeDestroy() {
+    //destroy canvas
+    let sceneToDelete = this.$el.querySelector('.scene3D');
+    sceneToDelete.removeChild(sceneToDelete.querySelector('canvas'))
   },
   mounted() {
-    
     if (this.isEarthRoute()) {
-      
-    
       setTimeout( () => {
         document.querySelector('#title').classList.add('appeared');
         document.querySelector('#menu').classList.add('appeared');
         document.querySelector('#icons').classList.add('appeared');
         document.querySelector('#gameBtn').classList.add('appeared');
       }, 1500);
-
 
       var earthVue = this;
       
@@ -185,10 +177,10 @@ export default {
       composer.addPass(renderPass);
       //Parameters
       var params = {
-          exposure: 1,
-          bloomStrength: 1,
-          bloomThreshold: 0.4,
-          bloomRadius: 0.5
+        exposure: 1,
+        bloomStrength: 1,
+        bloomThreshold: 0.4,
+        bloomRadius: 0.5
       };
 
       var bloomPass = new THREE.UnrealBloomPass( new THREE.Vector2( window.innerWidth, window.innerHeight ), 1.5, 0.4, 0.85 );
@@ -206,10 +198,10 @@ export default {
 
       //RESPONSIVE
       window.addEventListener("resize", () => {
-          camera.aspect = window.innerWidth / window.innerHeight;
-          camera.updateProjectionMatrix();
-          renderer.setSize(window.innerWidth, window.innerHeight);
-          composer.setSize( window.innerWidth, window.innerHeight );
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        composer.setSize( window.innerWidth, window.innerHeight );
       });
 
       //LIGHTS
@@ -221,14 +213,14 @@ export default {
       var nblights = 7;
       var arcAngle = 120;
       for(let i= 0; i<nblights;i++){
-          var angle  = Math.PI/180 * (arcAngle/(nblights-1)) * i;
-          var x = Math.cos(angle) * 15; 
-          var y = Math.sin(angle) * 15; 
+        var angle  = Math.PI/180 * (arcAngle/(nblights-1)) * i;
+        var x = Math.cos(angle) * 15; 
+        var y = Math.sin(angle) * 15; 
 
-          var directionalLight = new THREE.DirectionalLight( 0x56bbff , 0.6 );
-          directionalLight.position.set( x, y, -22 );
-          directionalLight.target.position.set( 0,0,0 );
-          scene.add( directionalLight );
+        var directionalLight = new THREE.DirectionalLight( 0x56bbff , 0.6 );
+        directionalLight.position.set( x, y, -22 );
+        directionalLight.target.position.set( 0,0,0 );
+        scene.add( directionalLight );
       }
       //Ambient
       var ambientLight = new THREE.AmbientLight( 0xd8d8d8 );
@@ -241,15 +233,15 @@ export default {
       //Object
       var earthGeometry = new THREE.SphereGeometry( 2.8, 50, 50 );
       var earthMaterial = new THREE.MeshStandardMaterial({
-          //color : 0x001B5A,
-          map : earthTexture,
-          
-          emissiveMap: lightsTexture,
-          emissive: 0xffefd3,
-          emissiveIntensity : 0.7,
+        //color : 0x001B5A,
+        map : earthTexture,
+        
+        emissiveMap: lightsTexture,
+        emissive: 0xffefd3,
+        emissiveIntensity : 0.7,
 
-          roughness : 0.7,
-          metalness : 0.4
+        roughness : 0.7,
+        metalness : 0.4
       })
       var earth = new THREE.Mesh( earthGeometry, earthMaterial);
       earth.rotation.y -= 97;
@@ -258,36 +250,36 @@ export default {
 
       //POINTS
       var placePoint = function(name, lat, long, callback ) {
-          var pointGeometry = new THREE.SphereGeometry( 0.13, 32, 32 );
-          var pointMaterial = new THREE.MeshBasicMaterial({
-              color : 0xff9a0c
-          });
+        var pointGeometry = new THREE.SphereGeometry( 0.13, 32, 32 );
+        var pointMaterial = new THREE.MeshBasicMaterial({
+            color : 0xff9a0c
+        });
 
-          var point = new THREE.Mesh( pointGeometry, pointMaterial );
-          earth.add( point );
+        var point = new THREE.Mesh( pointGeometry, pointMaterial );
+        earth.add( point );
 
-          var coord = calcPosFromLatLonRad( lat, long, 2.7);
-          point.position.set( coord[0], coord[1], coord[2] );
-          point._name = name;
-          point._callback = callback;
+        var coord = calcPosFromLatLonRad( lat, long, 2.7);
+        point.position.set( coord[0], coord[1], coord[2] );
+        point._name = name;
+        point._callback = callback;
 
-          return point;
+        return point;
       }
       //Creating the points + Action on click (APPEL VUE.JS)
       var mathematicsEgyptPoint = placePoint( 'mathematicsEgyptPoint', 30.044420, 31.235712 , () => {
-          this.callPopup(1);
+        this.callPopup(1);
       });
       var binaryChinaPoint = placePoint( 'binaryChinaPoint', 35.861660, 104.195397 , () =>{
-          this.callPopup(2);
+        this.callPopup(2);
       });
       var computersEnglandPoint = placePoint( 'computersEnglandPoint', 51.5073509, -0.1277583 , ()=>{
-          this.callPopup(3);
+        this.callPopup(3);
       });
       var programmingItalyPoint = placePoint( 'programmingItalyPoint', 41.86009225771948, 12.508575535957334 , ()=>{
-          this.callPopup(4);
+        this.callPopup(4);
       });
       var internetAmericaPoint = placePoint( 'internetAmericaPoint', 37.090240, -95.712891 , ()=>{
-          this.callPopup(5);
+        this.callPopup(5);
       });
 
       //RAYCASTER + DRAG MOUSEMOVE
@@ -304,54 +296,84 @@ export default {
       
       //Drag Listeners
       this.$refs.scene3D.addEventListener("mousedown", function(event) {
-          if ( pickedObject ) {
-              pickedObject._callback();
-              //Move the earth
-              TweenMax.to(camera.position,2,{x: -2, z: 6 , ease: Power4.easeInOut});
-              
-          } else {
-              mousehold = true;
-              startMouseX = event.clientX;
-              earthRotY = earth.rotation.y; 
-          }
-
-          earthVue.showInts = false;
+        if ( pickedObject ) {
+          pickedObject._callback();
+          //Move the earth
+          TweenMax.to(camera.position,2,{x: -2, z: 6 , ease: Power4.easeInOut});
+        } else {
+          mousehold = true;
+          startMouseX = event.clientX;
+          earthRotY = earth.rotation.y; 
+        }
+        earthVue.showInts = false;
       });
 
       this.$refs.scene3D.addEventListener("mouseup",function(){
-          mousehold = false;
+        mousehold = false;
       });
 
       this.$refs.scene3D.addEventListener("mousemove", function(event) {
-          if ( mousehold ) {
-              mouseDelta = (event.clientX - startMouseX) / window.innerWidth;
-              earth.rotation.y = earthRotY + mouseDelta * Math.PI * 1; //rotation speed
-          }
+        if ( mousehold ) {
+          mouseDelta = (event.clientX - startMouseX) / window.innerWidth;
+          earth.rotation.y = earthRotY + mouseDelta * Math.PI * 1; //rotation speed
+        }
 
-          normalizedPosition.x = (event.clientX / container.clientWidth ) *  2 - 1;
-          normalizedPosition.y = (event.clientY / container.clientHeight) * -2 + 1;  //flip Y because of canvas coord
+        normalizedPosition.x = (event.clientX / container.clientWidth ) *  2 - 1;
+        normalizedPosition.y = (event.clientY / container.clientHeight) * -2 + 1;  //flip Y because of canvas coord
       });
 
-      //BackBtn animation
-      /*
-      document.getElementById("backBtn").addEventListener("click",function(){
-          TweenMax.to(camera.position,2,{x: 0, z: 9 ,ease: Power4.easeInOut});
-      });
-      */ 
       this.earthBack = () => {
         TweenMax.to(camera.position,2,{x: 0, z: 9 ,ease: Power4.easeInOut});
       }
-    
 
+      //Points color init
+      for(let i = 0; i < points.length; i++){
+        if ( points[i] != earth ){
+          points[i].material.color.setHex(0xff9a20);
+        }
+      }
 
-      // console.log(this.$refs);
-      
+      //Raycasting
+      raycast.setFromCamera(normalizedPosition, camera);
+      //get the list of objects the ray intersected
+      const intersectedObjects = raycast.intersectObjects( points );
+      if (intersectedObjects.length) {
+        //pick the first object. It's the closest one
+        var intersectObj = intersectedObjects[0].object;
+        //check it's not the earth
+        pickedObject = intersectObj == earth ? null : intersectObj;
+        //Change color on hover
+        if (pickedObject ){
+          pickedObject.material.color.setHex(0xffc57f);
+        }
+      }
+
+      //Grabbing cursor
+      if ( mousehold && pickedObject == null ) {
+        container.classList.add("grabbing");
+      } else {
+        container.classList.remove("grabbing");
+      }
+
+      //Select cursor
+      if ( pickedObject ) {
+        container.classList.add("selected");
+      } else {
+        container.classList.remove("selected");
+      }
+
+      //CLOCK
+      var clock = new THREE.Clock();
+
+      //RENDER
+      var render = function() {
+        var delta = clock.getDelta();
       
         //Points color init
         for(let i = 0; i < points.length; i++){
-            if ( points[i] != earth ){
-                points[i].material.color.setHex(0xff9a20);
-            }
+          if ( points[i] != earth ){
+            points[i].material.color.setHex(0xff9a20);
+          }
         }
 
         //Raycasting
@@ -359,83 +381,38 @@ export default {
         //get the list of objects the ray intersected
         const intersectedObjects = raycast.intersectObjects( points );
         if (intersectedObjects.length) {
-            //pick the first object. It's the closest one
-            var intersectObj = intersectedObjects[0].object;
-            //check it's not the earth
-            pickedObject = intersectObj == earth ? null : intersectObj;
-            //Change color on hover
-            if (pickedObject ){
-              pickedObject.material.color.setHex(0xffc57f);
-            }
+          //pick the first object. It's the closest one
+          var intersectObj = intersectedObjects[0].object;
+          //check it's not the earth
+          pickedObject = intersectObj == earth ? null : intersectObj;
+          //Change color on hover
+          if( pickedObject ){
+            pickedObject.material.color.setHex(0xffc57f);
+          }
+        }
+
+        //Earth rotation animation
+        if(!mousehold && pickedObject == null){
+          earth.rotation.y += (Math.PI / 180) * 5 * delta;
         }
 
         //Grabbing cursor
         if ( mousehold && pickedObject == null ) {
-            container.classList.add("grabbing");
+          container.classList.add("grabbing");
         } else {
-            container.classList.remove("grabbing");
+          container.classList.remove("grabbing");
         }
 
         //Select cursor
         if ( pickedObject ) {
-            container.classList.add("selected");
+          container.classList.add("selected");
         } else {
-            container.classList.remove("selected");
+          container.classList.remove("selected");
         }
-    
 
-      //CLOCK
-      var clock = new THREE.Clock();
-
-      //RENDER
-      var render = function() {
-          var delta = clock.getDelta();
-        
-          //Points color init
-          for(let i = 0; i < points.length; i++){
-              if ( points[i] != earth ){
-                  points[i].material.color.setHex(0xff9a20);
-              }
-          }
-
-          //Raycasting
-          raycast.setFromCamera(normalizedPosition, camera);
-          //get the list of objects the ray intersected
-          const intersectedObjects = raycast.intersectObjects( points );
-          if (intersectedObjects.length) {
-              //pick the first object. It's the closest one
-              var intersectObj = intersectedObjects[0].object;
-              //check it's not the earth
-              pickedObject = intersectObj == earth ? null : intersectObj;
-              //Change color on hover
-              if( pickedObject ){
-                
-                  pickedObject.material.color.setHex(0xffc57f);
-              }
-          }
-
-          //Earth rotation animation
-          if(!mousehold && pickedObject == null){
-              earth.rotation.y += (Math.PI / 180) * 5 * delta;
-          }
-
-          //Grabbing cursor
-          if ( mousehold && pickedObject == null ) {
-              container.classList.add("grabbing");
-          } else {
-              container.classList.remove("grabbing");
-          }
-
-          //Select cursor
-          if ( pickedObject ) {
-              container.classList.add("selected");
-          } else {
-              container.classList.remove("selected");
-          }
-
-          //Rendering
-          composer.render();
-          requestAnimationFrame( render );
+        //Rendering
+        composer.render();
+        requestAnimationFrame( render );
       }
 
       render();
@@ -443,10 +420,6 @@ export default {
     }
   },
 }
-
-
-
-
 </script>
 
 <style lang="scss" scoped>

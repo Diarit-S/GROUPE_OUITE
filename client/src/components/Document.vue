@@ -4,7 +4,6 @@
       <svg class="circle" xmlns="http://www.w3.org/2000/svg" width="78" height="78" viewBox="0 0 78 78">
         <g id="Groupe_4" data-name="Groupe 4" transform="translate(-1057 -287)">
           <g id="Ellipse_4" data-name="Ellipse 4" transform="translate(1057 287)" fill="none" stroke="#ffffff" stroke-width="5">
-            <!-- <circle cx="39" cy="39" r="39" stroke="none"  fill="none"/> -->
             <circle class="exterieur" cx="39" cy="39" r="36.5" fill="none"/>
           </g>
         </g>
@@ -44,8 +43,6 @@ import DocumentHeader from './DocumentsCards/Base/DocumentHeader.vue';
 import DocumentFooter from './DocumentsCards/Base/DocumentFooter.vue'; 
 import { draw } from '../libs/svgDrawing';
 import { scrollControlled } from '../libs/scrollControlled';
-import {eventBus} from '../main';
-
 
 const gsap = require('gsap');
 const TweenMax = gsap.TweenMax;
@@ -64,28 +61,24 @@ export default {
       facts : [],
       error : '',
       getStorage : [],
-      readed : [1,2,4],
       scrollControlled : null,
       css: "fadeIn"
     }
   },
-  // Call facts in db 
   async created() {
+    // Call facts in db 
     try {
       this.facts = await factService.getFacts(); // getFacts is defined in factService.js
     } catch (err) {
       this.error = err.message;
     }
   },
-
   mounted(){
-      
-      setTimeout( () => {
-        document.querySelector('#back-to-earth').classList.add('appeared');
-        draw( document.querySelector('body') );
-      }, 1000);
+    setTimeout( () => {
+      document.querySelector('#back-to-earth').classList.add('appeared');
+      draw( document.querySelector('body') );
+    }, 1000);
   },
-
   methods : {
     changeRoute() {
       this.css = "fadeOut" 
@@ -94,17 +87,16 @@ export default {
       }, 1000)  
     }
   },
-
-
   updated() {
     this.css = "fadeIn" 
       
     window.scrollTo(0,0);
-
+    
+    //set current document to localStorage as readed
     if (localStorage.getItem('readed')) {
       
-      var readed = JSON.parse(localStorage.getItem('readed'));
-      
+      let readed = JSON.parse(localStorage.getItem('readed'));
+
       if (!readed.includes(parseInt(this.id))) {
         readed.push(parseInt(this.id));
       }
@@ -120,6 +112,7 @@ export default {
     readed.forEach(element => {
       this.allCards.push(element);
     });
+
     this.allCards.sort();
     let currentIndex = this.allCards.indexOf(parseInt(this.id));
     this.allCards.splice(currentIndex, 1);
@@ -129,11 +122,9 @@ export default {
       
       if (!this.allCards.includes(i)) {
         this.allCards.push(i);
-        
       } 
     }
     localStorage.setItem('cardOrder', JSON.stringify(this.allCards));
-
   },
   computed : {
     // Get the route parameters (in this case, the id)

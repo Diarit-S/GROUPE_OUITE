@@ -81,8 +81,7 @@ export default {
     episode3.addEventListener('mouseleave', () => {
       background3.style.opacity = 0;
     });
-    
-  },
+  }
 }
 </script>
 
