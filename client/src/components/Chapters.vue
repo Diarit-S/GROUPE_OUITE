@@ -1,9 +1,9 @@
 <template>
-  <div class="background">
+  <div :class="css">
     <div class="content">
       <h1 class="title" id="title">How we build the world together</h1>
       <ul class="chapters" id="chapters">
-        <li class="available" @click="toEarth()" id="episode1">
+        <li class="available" @click="changeRoute()" id="episode1">
           <p class="episode">Episode 1</p>
           <h2 class="chapter">Computing</h2>
         </li>
@@ -31,12 +31,15 @@ const TweenMax = gsap.TweenMax;
 export default {
   data() {
     return {
-
+      css: "background fadeIn"
     }
   },
   methods: {
-    toEarth() {
-      this.$router.push({ path: "/earth" });
+    changeRoute() {
+      this.css = "background fadeOut" 
+      setTimeout(() => {
+        this.$router.push({ path: "/earth" });
+      }, 1000)  
     }
   },
   mounted() {

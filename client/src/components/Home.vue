@@ -1,5 +1,5 @@
   <template>
-  <div class="background">
+  <div :class="css">
     <div class="content">
       <h1 class="title" id="title">How we build the world together</h1>
       <div class="description-area" id="description-area">
@@ -26,7 +26,7 @@
           </li>
         </ul>
       </div>
-        <router-link class="button" to="/introduction" id="start">Start</router-link>
+        <div class="button" @click="changeRoute()" id="start">Start</div>
       </div>
     </div>
 </template>
@@ -36,7 +36,15 @@
 export default {
   data() {
     return {
-
+      css: "background fadeIn"
+    }
+  },
+  methods: {
+    changeRoute() {
+      this.css = "background fadeOut" 
+      setTimeout(() => {
+        this.$router.push({ path: "/introduction" });
+      }, 1000)  
     }
   },
   mounted() {
@@ -51,11 +59,13 @@ export default {
 
     }, 1000);
     
-  },
+  }
+  
 }
 </script>
 
 <style lang="scss" scoped>
+
 
 .background {
   background-image: url('../assets/images/background-home.jpg');

@@ -1,12 +1,12 @@
 <template>
-  <div class="background">
+  <div :class="css">
     
     <div class="poster">
       <video poster="../assets/images/background-intro.png" autoplay>
         <source src="../assets/videos/intro.mp4" type="video/mp4" />
       </video>
 
-      <router-link class="button--small above" to="/chapters">Skip</router-link>
+      <div class="button--small above" @click="changeRoute()">Skip</div>
     </div>
   </div>
 </template>
@@ -16,6 +16,15 @@
 export default {
   data() {
     return {
+      css: "background fadeIn"
+    }
+  },
+  methods: {
+    changeRoute() {
+      this.css = "background fadeOut" 
+      setTimeout(() => {
+        this.$router.push({ path: "/chapters" });
+      }, 1000)  
     }
   },
   mounted() {
@@ -26,7 +35,10 @@ export default {
 
         setTimeout(() => {
           if (this.$route.name === "introduction") {
-            this.$router.push({ path: "/chapters" });
+            this.css = "background fadeOut" 
+            setTimeout(() => {
+              this.$router.push({ path: "/chapters" });
+            }, 1000)  
           }
         }, parseInt(vid.duration) + '000');
 

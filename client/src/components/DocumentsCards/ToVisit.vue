@@ -1,9 +1,7 @@
 <template>
-  <div class="visit-container" :style="current()" :class="{shadow : isInStorage()}">
-    <h2>{{child.name.toUpperCase()}}</h2>
+ <div class="visit-container" :style="current()" :class="{shadow : isInStorage()}">    <h2>{{child.name.toUpperCase()}}</h2>
     <router-link class="button" :to="goToDocument()">READ</router-link>
     <img class="visit__img" :src="earthImgSrc()">
-    <!-- <pre>{{storageTable}}</pre> -->
   </div>
 </template>
 
@@ -47,16 +45,17 @@ export default {
           }
           return false;
     },
+    
     current(){
-      // console.log(parseInt(this.$route.params.id));
-      // console.log(this.childIndex+1);
 
-      if (parseInt(this.$route.params.id) == this.childIndex+1) {
-        
-        return 'filter : grayscale(0); opacity: 1; box-shadow: 0px 0px 34px 8px rgba(176,176,176,0.6);';
+
+      if (parseInt(this.$route.params.id) === this.childIndex+1) {
+        return `filter : grayscale(0); opacity: 1; box-shadow: 0px 0px 34px 8px rgba(176,176,176,0.6); `;
+      } else {
+        return `order: ${parseInt(this.position)};`
       }
     }
-  },
+  }
 }
 </script>
 
@@ -80,9 +79,15 @@ export default {
     }
 
     .visit__img {
-      align-self: flex-end;
+      // align-self: flex-end;
       //transform: translateY(100px);
       transform: scale(0.9);
+    }
+
+    @media (max-width: 1400px) { 
+      h2 {
+        font-size: 1.5em;
+      }
     }
   } 
 
