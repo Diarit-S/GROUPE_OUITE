@@ -80,9 +80,15 @@ export default {
     }
 
     .visit__img {
-      align-self: flex-end;
+      // align-self: flex-end;
       //transform: translateY(100px);
       transform: scale(0.9);
+    }
+
+    @media (max-width: 1400px) { 
+      h2 {
+        font-size: 1.5em;
+      }
     }
   } 
 
