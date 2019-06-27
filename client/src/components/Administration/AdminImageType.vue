@@ -1,8 +1,8 @@
 <template>
   <div class="image-container">
-     <h2>component image</h2>
-     <h3>{{childId}}</h3>
-     <button @click="updateCard(parentName, childId)">Uptade</button>
+    <h2>component image</h2>
+    <h3>{{childId}}</h3>
+    <button @click="updateCard(parentName, childId)">Uptade</button>
   </div>
 </template>
 
@@ -29,20 +29,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .image-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 90%;
-    height: 90vh;
-    color: black;
-    margin: auto;
-    border: black solid 10px ;
-    border-radius: 20px;
-  }
-  button{
-    background-color: gray;
-    border: gray solid 1px ;
-  }
+.image-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  height: 90vh;
+  color: black;
+  margin: auto;
+  border: black solid 10px ;
+  border-radius: 20px;
+}
+
+button {
+  background-color: gray;
+  border: gray solid 1px ;
+}
 </style>

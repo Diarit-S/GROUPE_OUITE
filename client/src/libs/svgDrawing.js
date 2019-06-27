@@ -15,7 +15,6 @@ class DrawScroll {
       render : function (){
         let body =  document.querySelector('body') ;
         this.windowHeigth = this.body.clientHeight - window.innerHeight ;
-        // console.log( { body } , window.innerHeight   )
       }
     }
     

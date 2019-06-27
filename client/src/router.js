@@ -13,40 +13,40 @@ Vue.use(VueRouter);
 
 export default new VueRouter({
   mode: 'history',
- routes : [
-   {
-     path : '/',
-     component: Home,
-   },
-   {
-     path : '/introduction',
-     name: 'introduction',
-     component: Introduction,
-   },
-   {
-    path : '/chapters',
-    name: 'chapters',
-    component: Chapters,
-  },
-  {
-    path : '/earth',
-    name: 'earth',
-    component: Earth,
-  },
-  {
-    path : '/document/:id',
-    name : 'document',
-    component: Document,
-  },
-  {
-    path : '/admindocument/:id',
-    name : 'admindocument',
-    component: AdminDocument,
-  },
-  {
-    path : '/game',
-    name: 'game',
-    component: Game,
-  }
- ]
+  routes : [
+    {
+      path : '/',
+      component: Home,
+    },
+    {
+      path : '/introduction',
+      name: 'introduction',
+      component: Introduction,
+    },
+    {
+      path : '/chapters',
+      name: 'chapters',
+      component: Chapters,
+    },
+    {
+      path : '/earth',
+      name: 'earth',
+      component: Earth,
+    },
+    {
+      path : '/document/:id',
+      name : 'document',
+      component: Document,
+    },
+    {
+      path : '/admindocument/:id',
+      name : 'admindocument',
+      component: AdminDocument,
+    },
+    {
+      path : '/game',
+      name: 'game',
+      component: Game,
+    }
+  ]
 })

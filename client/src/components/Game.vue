@@ -2,7 +2,7 @@
   <div :class="css">
     <div v-if="isEarthRoute()" class="scene3D" id="scene3D" ref="scene3D"></div>
 
-     <div class="menu button--small" @click="changeRouteToChapters()">Back to menu</div>
+    <div class="menu button--small" @click="changeRouteToChapters()">Back to menu</div>
     <div class="title">
       <h1>How we build the world together</h1>
       <h2>Computing - Test your knowledge</h2>
@@ -12,10 +12,10 @@
       <!-- MERCI DE GARDER LES LIGNES COMMENTÉES  -->
       <!-- <transition-group name="answers" @before-enter="beforeEnter"> -->
 
-        <p :key="animKey">{{ question.question }}</p>
-        <ul :key="animKey+1">
-          <li v-for="answer in findAnswers()" :key="answer" :class="choicecss" @click="choice(answer)"> {{ answer }}</li>
-        </ul>
+      <p :key="animKey">{{ question.question }}</p>
+      <ul :key="animKey+1">
+        <li v-for="answer in findAnswers()" :key="answer" :class="choicecss" @click="choice(answer)"> {{ answer }}</li>
+      </ul>
       <!-- </transition-group> -->
     </div>
 
@@ -31,11 +31,10 @@
 
     <div class="quizz" v-if="showScore">
       <h3>Your score</h3>
-      <span class="score">{{ score }} / 10</span>
+      <span class="score">{{ score }} / {{ questions.length }}</span>
       <p class="endMessage"> {{ endMessage() }}</p>
       <div class="button" @click="changeRouteToEarth()">Back to earth</div>
     </div>
-
 
     <transition>
       <div class="answer" v-if="showAnswer" >
@@ -47,7 +46,8 @@
         <button v-if="level >= questions.length" @click="displayScore()" class="button">See your score</button>
       </div>
     </transition>
-    <div  class="game" @click="changeRouteToEarth()">
+
+    <div class="game" @click="changeRouteToEarth()">
       <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="15" cy="15" r="14.25" stroke="white" stroke-width="1.5"/>
         <rect x="19.5078" y="8.90118" width="1.875" height="15" rx="0.9375" transform="rotate(45 19.5078 8.90118)" fill="white"/>
@@ -55,6 +55,7 @@
       </svg>
       <p>Quit the game</p>
     </div>
+    
     <div class="questions-count">
       <span>Question</span>    
       <span>{{ level }} / {{ questions.length }}</span> 
@@ -120,11 +121,9 @@ export default {
     findAnswers() {
       return this.question.answers
     },
-
     findType() {
       return this.question.type
     },
-
     findImage(level) {
       return images[`question${level}`]
     },
@@ -153,15 +152,13 @@ export default {
       this.image = this.findImage(level)
       this.correct = undefined
       this.animKey++
-
     },
     displayScore() {
       this.showScore = true
       this.showAnswer = false
     },
     endMessage() {
-
-      if(this.score > 7) {
+      if (this.score > 7) {
         return 'Congratulation for this excellent score ! If you want to learn more and discover suprising facts about computing history, make sure to read our documents.'
       } else if (this.score > 4) {
         return 'Congratulation for this pretty good score. You already have some knowledge about computing history, but you still have some infos to learn and suprising facts to discover, so make sure to read our documents.'
@@ -173,16 +170,8 @@ export default {
     },
     isEarthRoute(){
       if (this.$route.name == "earth" || this.$route.name == "game") {
-        console.log('is earth');
         return true;
       }
-    },
-    beforeEnter(el) {
-      // el.style.display = 'none';
-      // el.style.display = 'initial';
-      // setTimeout(() => {
-      //   el.style.display = 'block';
-      // }, 4000);
     }
   },
   mounted() {
@@ -243,10 +232,10 @@ export default {
       composer.addPass(renderPass);
       //Parameters
       var params = {
-          exposure: 1,
-          bloomStrength: 1,
-          bloomThreshold: 0.4,
-          bloomRadius: 0.5
+        exposure: 1,
+        bloomStrength: 1,
+        bloomThreshold: 0.4,
+        bloomRadius: 0.5
       };
 
       var bloomPass = new THREE.UnrealBloomPass( new THREE.Vector2( window.innerWidth, window.innerHeight ), 1.5, 0.4, 0.85 );
@@ -264,10 +253,10 @@ export default {
 
       //RESPONSIVE
       window.addEventListener("resize", () => {
-          camera.aspect = window.innerWidth / window.innerHeight;
-          camera.updateProjectionMatrix();
-          renderer.setSize(window.innerWidth, window.innerHeight);
-          composer.setSize( window.innerWidth, window.innerHeight );
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        composer.setSize( window.innerWidth, window.innerHeight);
       });
 
       //LIGHTS
@@ -278,15 +267,15 @@ export default {
       //Blue arc
       var nblights = 7;
       var arcAngle = 120;
-      for(let i= 0; i<nblights;i++){
-          var angle  = Math.PI/180 * (arcAngle/(nblights-1)) * i;
-          var x = Math.cos(angle) * 15; 
-          var y = Math.sin(angle) * 15; 
+      for (let i= 0; i<nblights;i++){
+        var angle  = Math.PI/180 * (arcAngle/(nblights-1)) * i;
+        var x = Math.cos(angle) * 15; 
+        var y = Math.sin(angle) * 15; 
 
-          var directionalLight = new THREE.DirectionalLight( 0x56bbff , 0.6 );
-          directionalLight.position.set( x, y, -22 );
-          directionalLight.target.position.set( 0,0,0 );
-          scene.add( directionalLight );
+        var directionalLight = new THREE.DirectionalLight( 0x56bbff , 0.6 );
+        directionalLight.position.set( x, y, -22 );
+        directionalLight.target.position.set( 0,0,0 );
+        scene.add( directionalLight );
       }
       //Ambient
       var ambientLight = new THREE.AmbientLight( 0xd8d8d8 );
@@ -299,15 +288,15 @@ export default {
       //Object
       var earthGeometry = new THREE.SphereGeometry( 2.8, 50, 50 );
       var earthMaterial = new THREE.MeshStandardMaterial({
-          //color : 0x001B5A,
-          map : earthTexture,
-          
-          emissiveMap: lightsTexture,
-          emissive: 0xffefd3,
-          emissiveIntensity : 0.7,
+        //color : 0x001B5A,
+        map : earthTexture,
+        
+        emissiveMap: lightsTexture,
+        emissive: 0xffefd3,
+        emissiveIntensity : 0.7,
 
-          roughness : 0.7,
-          metalness : 0.4
+        roughness : 0.7,
+        metalness : 0.4
       })
       var earth = new THREE.Mesh( earthGeometry, earthMaterial);
       earth.rotation.y -= 97;
@@ -316,36 +305,36 @@ export default {
 
       //POINTS
       var placePoint = function(name, lat, long, callback ) {
-          var pointGeometry = new THREE.SphereGeometry( 0.13, 32, 32 );
-          var pointMaterial = new THREE.MeshBasicMaterial({
-              color : 0xff9a0c
-          });
+        var pointGeometry = new THREE.SphereGeometry( 0.13, 32, 32 );
+        var pointMaterial = new THREE.MeshBasicMaterial({
+            color : 0xff9a0c
+        });
 
-          var point = new THREE.Mesh( pointGeometry, pointMaterial );
-          earth.add( point );
+        var point = new THREE.Mesh( pointGeometry, pointMaterial );
+        earth.add( point );
 
-          var coord = calcPosFromLatLonRad( lat, long, 2.7);
-          point.position.set( coord[0], coord[1], coord[2] );
-          point._name = name;
-          point._callback = callback;
+        var coord = calcPosFromLatLonRad( lat, long, 2.7);
+        point.position.set( coord[0], coord[1], coord[2] );
+        point._name = name;
+        point._callback = callback;
 
-          return point;
+        return point;
       }
       //Creating the points + Action on click (APPEL VUE.JS)
       var mathematicsEgyptPoint = placePoint( 'mathematicsEgyptPoint', 30.044420, 31.235712 , () => {
-          //action click point 1
+        //action click point 1
       });
       var binaryChinaPoint = placePoint( 'binaryChinaPoint', 35.861660, 104.195397 , () =>{
-          //action click point 2
+        //action click point 2
       });
       var computersEnglandPoint = placePoint( 'computersEnglandPoint', 51.5073509, -0.1277583 , ()=>{
-          //action click point 3
+        //action click point 3
       });
       var programmingItalyPoint = placePoint( 'programmingItalyPoint', 41.86009225771948, 12.508575535957334 , ()=>{
-          //action click point 4
+        //action click point 4
       });
       var internetAmericaPoint = placePoint( 'internetAmericaPoint', 37.090240, -95.712891 , ()=>{
-          //action click point 5
+        //action click point 5
       });
 
       //RAYCASTER + DRAG MOUSEMOVE
@@ -362,97 +351,91 @@ export default {
       
       //Drag Listeners
       this.$refs.scene3D.addEventListener("mousedown", function(event) {
-          if ( pickedObject ) {
-              pickedObject._callback();
-              //Move the earth
-              //TweenMax.to(camera.position,2,{x: -2, z: 6 , ease: Power4.easeInOut});
-          } else {
-              mousehold = true;
-              startMouseX = event.clientX;
-              earthRotY = earth.rotation.y; 
-          }
-
+        if ( pickedObject ) {
+          pickedObject._callback();
+          //Move the earth
+          //TweenMax.to(camera.position,2,{x: -2, z: 6 , ease: Power4.easeInOut});
+        } else {
+          mousehold = true;
+          startMouseX = event.clientX;
+          earthRotY = earth.rotation.y; 
+        }
       });
 
       this.$refs.scene3D.addEventListener("mouseup",function(){
-          mousehold = false;
+        mousehold = false;
       });
 
       this.$refs.scene3D.addEventListener("mousemove", function(event) {
-          if ( mousehold ) {
-              mouseDelta = (event.clientX - startMouseX) / window.innerWidth;
-              earth.rotation.y = earthRotY + mouseDelta * Math.PI * 1; //rotation speed
-          }
+        if ( mousehold ) {
+          mouseDelta = (event.clientX - startMouseX) / window.innerWidth;
+          earth.rotation.y = earthRotY + mouseDelta * Math.PI * 1; //rotation speed
+        }
 
-          normalizedPosition.x = (event.clientX / container.clientWidth ) *  2 - 1;
-          normalizedPosition.y = (event.clientY / container.clientHeight) * -2 + 1;  //flip Y because of canvas coord
+        normalizedPosition.x = (event.clientX / container.clientWidth ) *  2 - 1;
+        normalizedPosition.y = (event.clientY / container.clientHeight) * -2 + 1;  //flip Y because of canvas coord
       });
 
-      //BackBtn animation
-      /*
-      document.getElementById("backBtn").addEventListener("click",function(){
-          TweenMax.to(camera.position,2,{x: 0, z: 9 ,ease: Power4.easeInOut});
-      });
-      */    
-
-     
-
-         //CLOCK
+      //CLOCK
       var clock = new THREE.Clock();
 
       //RENDER
       var render = function() {
-          var delta = clock.getDelta();
-        
-          //Points color init
-          for(let i = 0; i < points.length; i++){
-              if ( points[i] != earth ){
-                  points[i].material.color.setHex(0xff9a20);
-              }
+        var delta = clock.getDelta();
+      
+        //Points color init
+        for(let i = 0; i < points.length; i++){
+          if ( points[i] != earth ){
+            points[i].material.color.setHex(0xff9a20);
           }
+        }
 
-          //Raycasting
-          raycast.setFromCamera(normalizedPosition, camera);
-          //get the list of objects the ray intersected
-          const intersectedObjects = raycast.intersectObjects( points );
-          if (intersectedObjects.length) {
-              //pick the first object. It's the closest one
-              var intersectObj = intersectedObjects[0].object;
-              //check it's not the earth
-              pickedObject = intersectObj == earth ? null : intersectObj;
-              //Change color on hover
-              if( pickedObject ){
-                
-                  pickedObject.material.color.setHex(0xffc57f);
-              }
+        //Raycasting
+        raycast.setFromCamera(normalizedPosition, camera);
+        //get the list of objects the ray intersected
+        const intersectedObjects = raycast.intersectObjects( points );
+        if (intersectedObjects.length) {
+          //pick the first object. It's the closest one
+          var intersectObj = intersectedObjects[0].object;
+          //check it's not the earth
+          pickedObject = intersectObj == earth ? null : intersectObj;
+          //Change color on hover
+          if( pickedObject ){
+            pickedObject.material.color.setHex(0xffc57f);
           }
+        }
 
-                  //Earth rotation animation
+        //Earth rotation animation
         if(!mousehold && pickedObject == null){
-            earth.rotation.y += (Math.PI / 180) * 5 * delta;
+          earth.rotation.y += (Math.PI / 180) * 5 * delta;
         }
 
         //Grabbing cursor
         if ( mousehold && pickedObject == null ) {
-            container.classList.add("grabbing");
+          container.classList.add("grabbing");
         } else {
-            container.classList.remove("grabbing");
+          container.classList.remove("grabbing");
         }
 
         //Select cursor
         if ( pickedObject ) {
-            container.classList.add("selected");
+          container.classList.add("selected");
         } else {
-            container.classList.remove("selected");
+          container.classList.remove("selected");
         }
 
-          //Rendering
-          composer.render();
-          requestAnimationFrame( render );
+        //Rendering
+        composer.render();
+        requestAnimationFrame( render );
       }
 
       render();
     }
+  },
+  beforeDestroy() {
+    //destroy canvas
+    let sceneToDelete = this.$el.querySelector('.scene3D');
+    sceneToDelete.removeChild(sceneToDelete.querySelector('canvas'))
   }
 }
 </script>

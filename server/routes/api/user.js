@@ -31,7 +31,6 @@ async function getUser() {
 
 router.post('/', async (req, res)=>{
   const user = await getUser();
-  console.log( await user.find({}).toArray() )
   res.send('Received a GET HTTP method');
 });
 

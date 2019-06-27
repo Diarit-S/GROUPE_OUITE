@@ -1,11 +1,9 @@
 <template>
   <div :class="css">
-    
     <div class="poster">
       <video poster="../assets/images/background-intro.png" autoplay>
         <source src="../assets/videos/intro.mp4" type="video/mp4" />
       </video>
-
       <div class="button--small above" @click="changeRoute()">Skip</div>
     </div>
   </div>
@@ -41,10 +39,7 @@ export default {
             }, 1000)  
           }
         }, parseInt(vid.duration) + '000');
-
-    })   
-
-    
+    })
   }
 }
 </script>

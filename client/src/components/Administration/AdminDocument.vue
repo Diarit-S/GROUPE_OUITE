@@ -1,14 +1,7 @@
 <template>
   <div>
-     <!-- <h1>Facts</h1> -->
-    <!-- CREATE FACT HERE -->
     <p v-if="error">{{error}}</p>
     <div>
-      <!-- <div v-for="(fact, index) in facts" :item="fact" :index="index" :key="fact._id">
-        {{`${fact.createdAt.getDate()}/`}}
-        <p>{{fact.text}}</p>
-      </div> -->
-      <!--  -->
       <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
       <link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
       <link rel="stylesheet" href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
@@ -19,9 +12,7 @@
         <component v-for="child in facts[id-1].childComponents" :is="child.type" :key="child.id" :child="child" :parentName="facts[id-1].name"></component>
       </div>
     </div>
-    <!-- END OF FACTS -->
   </div>
-  
 </template>
 
 <script>
@@ -46,8 +37,8 @@ export default {
       error : '',
     }
   },
-  // Call facts in db 
   async created() {
+    // Call facts in db 
     try {
       this.facts = await factService.getFacts(); // getFacts is defined in factService.js
     } catch (err) {
@@ -67,23 +58,26 @@ export default {
     // Get the route parameters (in this case, the id)
     id(){
       return this.$route.params.id;
-    },
+    }
   }
 }
 
 </script>
 
 <style lang="scss" scoped>
-  .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    justify-content: space-around;
-    *{
-      margin-top: 10%;
-    }
-  } button{
-    background-color: gray;
-    border: gray solid 1px ;
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  justify-content: space-around;
+
+  * {
+    margin-top: 10%;
   }
+} 
+
+button {
+  background-color: gray;
+  border: gray solid 1px ;
+}
 </style>

@@ -95,7 +95,7 @@ export default {
     //set current document to localStorage as readed
     if (localStorage.getItem('readed')) {
       
-      let readed = JSON.parse(localStorage.getItem('readed'));
+      var readed = JSON.parse(localStorage.getItem('readed'));
 
       if (!readed.includes(parseInt(this.id))) {
         readed.push(parseInt(this.id));
@@ -130,7 +130,7 @@ export default {
     // Get the route parameters (in this case, the id)
     id(){
       return this.$route.params.id;
-    },
+    }
   }
 }
 
