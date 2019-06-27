@@ -87,7 +87,7 @@ export default {
     border: gray solid 1px ;
   }
   .title {
-    font-size: 50px;
+    font-size: 30px;
     text-transform: uppercase;
     letter-spacing: calc(50px * 10 / 100);
     margin-bottom: 50px;
