@@ -175,6 +175,7 @@ export default {
   opacity: 0;
   transition: opacity 0.5s;
   transition-delay: 1.5s;
+  cursor : pointer;
 
   &.appeared {
     opacity: 1;
