@@ -35,17 +35,15 @@ export default {
     }
   },
   mounted(){
-
-      let elementDetected =  new ViewPort( this.$el.querySelector('.card') );
-      elementDetected.detectViewport( ( callback , element )=>{
-        if (callback) {
-          element.classList.add('active');
-        }else{
-          element.classList.remove('active');
-        }
-     });
-
-  },
+    let elementDetected =  new ViewPort( this.$el.querySelector('.card') );
+    elementDetected.detectViewport( ( callback , element )=>{
+      if (callback) {
+        element.classList.add('active');
+      }else{
+        element.classList.remove('active');
+      }
+    });
+  }
 }
 </script>
 
@@ -101,8 +99,5 @@ export default {
     margin-bottom: 20px;
   }
 }
-
-
-
 
 </style>

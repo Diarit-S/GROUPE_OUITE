@@ -59,29 +59,28 @@ h2 {
   transform: translateY(30vh);
 }
 .video-container {
-    position: relative;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  background-color: #000112;
+
+  video {
     width: 100%;
-    height: 100vh;
-    display: flex;
+    min-height: 50vh;
+    max-height: 100vh;
+    background : #000112;
+    margin: auto;
+    display: block;
+  }
+
+  &.small {
+    width: 50%;
+    justify-content: center;
     align-items: center;
-    background-color: #000112;
-    video {
-      width: 100%;
-      min-height: 50vh;
-      max-height: 100vh;
-      background : #000112;
-      margin: auto;
-      display: block;
-    }
-
-
-    &.small {
-      width: 50%;
-      justify-content: center;
-      align-items: center;
-    }
+  }
 }
-
 
 .parentVideo {
   width: 100%;

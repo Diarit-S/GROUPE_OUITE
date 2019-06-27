@@ -25,24 +25,11 @@ async function loadFactsCollection() {
 router.get('/', async (req, res)=>{
   const posts = await loadFactsCollection();
   res.send(await posts.find({}).toArray());
-  // console.log(await posts.find({}).toArray());
 });
 
-// Add Facts
-// router.post('/', async (req, res, name)=>{
-//   const facts = await loadFactsCollection();
-//   await facts.insertOne({
-//     name : req.body.name,
-//   });
-//   res.status(201).send();
-// })
 router.post('/:name/:child/:text/:title', async (req, res)=>{ 
-  console.log('test');
-  console.log(req.params.name);
   const facts = await loadFactsCollection();
   const childIndex = req.params.child;
-  console.log(typeof(childIndex));
-  
 
   switch (childIndex) {
     case '1' : 

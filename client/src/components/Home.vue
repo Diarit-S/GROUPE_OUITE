@@ -26,9 +26,9 @@
           </li>
         </ul>
       </div>
-        <div class="button" @click="changeRoute()" id="start">Start</div>
-      </div>
+      <div class="button" @click="changeRoute()" id="start">Start</div>
     </div>
+  </div>
 </template>
 
 <script>
@@ -58,9 +58,7 @@ export default {
       }, 1000);
 
     }, 1000);
-    
   }
-  
 }
 </script>
 

@@ -1,7 +1,7 @@
 <template>
   <div :class="css">
     <div class="cards-container">
-     <to-visit v-for="(child, index) in parent" :key="child._id" :parent="parent" :child="child" :childIndex="index"></to-visit>
+      <to-visit v-for="(child, index) in parent" :key="child._id" :parent="parent" :child="child" :childIndex="index"></to-visit>
     </div>
      <div class="game" @click="changeRoute()" id="gameBtn">
       <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -20,7 +20,6 @@
 
 <script>
 import ToVisit from '../ToVisit';
-import {eventBus} from '../../../main';
 
 export default {
   components : {
@@ -45,29 +44,29 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-   .footer {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    background-color: #000112;
-    color: white;
-    width: 100%;
-    height: 100vh;
-  } 
+  .footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #000112;
+  color: white;
+  width: 100%;
+  height: 100vh;
+} 
 
-  .cards-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    background-color: #000112;
-    color: white;
-    width: 100%;
-    height: 80vh;
-  }
+.cards-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #000112;
+  color: white;
+  width: 100%;
+  height: 80vh;
+}
 
-  .game {
+.game {
   z-index: 10;
   display: flex;
   align-items: center;

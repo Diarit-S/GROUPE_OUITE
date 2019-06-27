@@ -25,10 +25,8 @@ export default {
     parent : {
     },
     functions :{
-
     },
   },
-
   methods: {
     backgroundUrl() {
       if (this.parent.background) {
@@ -42,7 +40,6 @@ export default {
       this.functions.scrollDown()
     }
   },
-
   mounted() {
     setTimeout( () => {
       document.querySelector('#title').classList.add('appeared');
@@ -157,7 +154,4 @@ blockquote::after {
     transform: translate(-50%, 50%);
   }
 }
-
-
-
 </style>
