@@ -22,3 +22,11 @@ Run this command in `client/` directory
 ```
 npm run serve
 ```
+
+## How the website works
+```
+The front-office of our website is build width VueJS framework. 
+All texts and datas are stored in a MongoDB local database.
+We use ExpressJS to build a server and our service to the Json API 
+```
+
