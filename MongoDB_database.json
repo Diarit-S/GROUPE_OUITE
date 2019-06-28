@@ -1,0 +1,537 @@
+/* 1 */
+{
+    "_id" : ObjectId("5d089e3d370a9f0020d49169"),
+    "name" : "Mathematics",
+    "background" : "mathematics",
+    "popupIntro" : "Before the modern age and the worldwide spread of knowledge, written examples of new mathematical developments have come to light only in a few locales. From Mesopotomia with the people of Sumer, to the Ancient Empire of Egypt, since the beginning of our hsitory, we tried to represent our world and by the same way, understand it better.",
+    "quote" : "Mathematics, the science of the eternal and immutable, is the science of the unreal.",
+    "toVisitImg" : "mathEgypt",
+    "quoteAuthor" : "Ernest Renan",
+    "childComponents" : {
+        "one" : {
+            "id" : 1,
+            "type" : "Poster",
+            "image" : "mathematics-origins",
+            "title" : "The origins",
+            "position" : "left",
+            "texts" : {
+                "text1" : "Before the modern age and the worldwide spread of knowledge, written examples of new mathematical developments have come to light only in a few locales.",
+                "text2" : "From 3000 BC the Mesopotamian states of Sumer, Akkad and Assyria, together with Ancient Egypt and Ebla began using arithmetic, algebra and geometry for purposes of taxation, commerce, trade and also in the field of astronomy and to formulate calendars and record time."
+            }
+        },
+        "two" : {
+            "id" : 2,
+            "type" : "Video",
+            "videoName" : "Is a world without maths possible",
+            "poster" : "world-without-maths"
+        },
+        "three" : {
+            "id" : 3,
+            "type" : "ImageType",
+            "image" : "egypt",
+            "alt" : "egypt",
+            "audio" : "Why we decided to count"
+        },
+        "four" : {
+            "id" : 4,
+            "type" : "TextType",
+            "position" : "right",
+            "title" : "Why we decided to count",
+            "texts" : {
+                "text1" : "If it is possible to live without numbers, why on the other side of the world, 6 000 years ago, people of Sumer, the first world’s civilization, felt the need to turn 1 into a cone-shaped token, and by the same way start counting ?",
+                "text2" : "What was so different about life in the ancient civilization of Sumer that led people to create the beginning of arithmetic ?"
+            },
+            "hints" : {
+                "hint1" : "Uruk, Sumer’s largest city has been estimated to have had a population of 80,000",
+                "hint2" : "Sumer’s total population including agricultural population might has been 1.5 million"
+            }
+        },
+        "five" : {
+            "id" : 5,
+            "type" : "Poster",
+            "image" : "mathematics-elite",
+            "title" : "The elite",
+            "position" : "right",
+            "texts" : {
+                "text1" : "1 was now disciplined and organized as never before. It became a powerful tool, one that could be use to build anything.",
+                "text2" : "Only few where the one initiated in the mysteries of numbers. Early Sumerian “mathematicians” would train since childhood, to became a powerful a highly-paid elite, a system that we still pay hommage to today..."
+            }
+        },
+        "six" : {
+            "id" : 6,
+            "type" : "TextType",
+            "title" : "Egyptian big numbers",
+            "position" : "left",
+            "texts" : {
+                "text1" : "As one of the greatest empire the world has never met, Ancient Egypt, confronted to different problems such as measuring and calculating areas of lands, that was vital to bureaucractic needs, gave birth to the earliest mathematical inovators."
+            }
+        },
+        "seven" : {
+            "id" : 7,
+            "type" : "ImageType",
+            "image" : "egyptians",
+            "alt" : "egyptians"
+        },
+        "height" : {
+            "id" : 8,
+            "type" : "Video",
+            "videoName" : "Egyptian numbers",
+            "poster" : "story-of-maths"
+        },
+        "nine" : {
+            "id" : 9,
+            "type" : "ImageType",
+            "image" : "egyptian-numbers",
+            "alt" : "egyptian numbers"
+        },
+        "ten" : {
+            "id" : 10,
+            "type" : "TextType",
+            "title" : "Why we decided to calculate",
+            "position" : "right",
+            "texts" : {
+                "text1" : "The hieroglyphs are beautiful. However, the Egyptian number system created a new challenge.",
+                "text2" : "Think about it a few minutes. You can use one stroke to represent one unit.  You can also use one stroke to represent one million of units. But what about writing 999 999 ?"
+            }
+        },
+        "eleven" : {
+            "id" : 11,
+            "type" : "Video",
+            "videoName" : "Rind mathematical papyrus",
+            "poster" : "rind-mathematical-papyrus"
+        }
+    }
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("5d08b44838d3bb05f8255f63"),
+    "name" : "Binary",
+    "background" : "binary",
+    "popupIntro" : "A binary code represents text, computer processor instructions, or any other data using a two-symbol system. The two-symbol system used is often \"0\" and \"1\" from the binary number system. We invented many different other number systems, from the simple Tally Marks to the very efficient base-ten positional Roman notation. To understand why we choose Binary for our computers, it is important to think about the perception of numbers itself, as well as its diversity.",
+    "toVisitImg" : "chinaBinary",
+    "introduction" : "A binary code represents text, computer processor instructions, or any other data using a two-symbol system. The two-symbol system used is often \"0\" and \"1\" from the binary number system.",
+    "childComponents" : {
+        "one" : {
+            "id" : 1,
+            "type" : "Poster",
+            "title" : "About counting",
+            "image" : "ancient-egypt",
+            "position" : "left",
+            "texts" : {
+                "text1" : "We need to start from the simple concept of counting. Quickly after we decided to count things such as in he first human cities of Sumer, we all needed to invent a counting system.",
+                "text2" : "Tally marks is the simpliest counting system imaginable. One is simply represented by one stroke, so the number of strokes you add will represents the number of things you are counting."
+            }
+        },
+        "two" : {
+            "id" : 2,
+            "type" : "ImageType",
+            "image" : "tallymarks",
+            "alt" : "tallymarks",
+            "audio" : "Tally marks"
+        },
+        "three" : {
+            "id" : 3,
+            "type" : "TextType",
+            "position" : "right",
+            "title" : "Why we do not only use tally marks",
+            "texts" : {
+                "text1" : "If using Tally marks for counting or even calculate seems to be the easiest way to proceed, it was very unefficient and wasteful in time and energy, especially when we had to count a very big amount of things. Meanwhile, base-ten positional notation, which we use today, uses a different symbol to represent a certain amount of things.",
+                "text2" : "0 - 1 - 2 - 3 - 4 - 5 - 6 - 7 - 8 - 9 - 10 - 11 - 12 - 13 - 14 - 15 - 16 - 17 - 18 - 19 And so on.",
+                "text3" : "However, base-ten positional notation is not the only counting system, and not the most effective for every situations, such as computing."
+            }
+        },
+        "four" : {
+            "id" : 4,
+            "type" : "Poster",
+            "image" : "chinese-philosophy",
+            "title" : "The chinese philosophy",
+            "position" : "right",
+            "texts" : {
+                "text1" : "Another point of view was brought in the late 9th century BC, in the ancient divination text of Yi Jing 易經. This text depitcs a type of divination called cleromancy, which uses a specific type of figures : hexagrams."
+            }
+        },
+        "five" : {
+            "id" : 5,
+            "type" : "TextType",
+            "position" : "left",
+            "title" : "Yin and yang",
+            "texts" : {
+                "text1" : "Based on the taoist traditionnal philosophy, an hexagrams is a symbol composed of stacked horizontal lines, where each lines is either Yang (“something”) or Yin (“the gap”). ",
+                "text2" : "The sequence presented in Yi Jing text pairs the hexagrams with their upside-down equivalents. It directly corresponds to the fundemental concept of dualism in ancient Chinese philosophy, describing how seemingly opposite or contrary forces may actually be complementary and interdependent in the natural world.",
+                "text4" : "Eventually this conception of the universe traveled around the world and led the German mathematician Gottfried Wilhelm Leibniz to use it as a new counting system : the binary."
+            }
+        },
+        "six" : {
+            "id" : 6,
+            "type" : "ImageType",
+            "image" : "ying-yang",
+            "alt" : "ying-yang"
+        },
+        "seven" : {
+            "id" : 7,
+            "type" : "Video",
+            "videoName" : "Invention of binary",
+            "poster" : "gottfried-wilhem-leibniz"
+        },
+        "height" : {
+            "id" : 8,
+            "type" : "Video",
+            "videoName" : "How we count in binary",
+            "poster" : "count-in-binary"
+        },
+        "nine" : {
+            "id" : 9,
+            "type" : "ImageType",
+            "image" : "binary-code",
+            "alt" : "binary code"
+        },
+        "ten" : {
+            "id" : 10,
+            "type" : "TextType",
+            "position" : "right",
+            "title" : "Why we use binary for computing",
+            "texts" : {
+                "text1" : "In our everyday life today, we all use the decimal numeral system (base-ten positional notation), because it all comes from a natural choice, pointed by the number of our fingers. So, why is it not the same for our computers ?"
+            },
+            "hints" : {
+                "hint1" : "The explanation is simple : everything that a computer does comes down to what’s known as MicroTransistors, tiny switches that can either be on, or off. Thus, we represent “on” by 1, and “off” by 0."
+            }
+        },
+        "eleven" : {
+            "id" : 11,
+            "type" : "Video",
+            "videoName" : "Bit byte and spelling",
+            "poster" : "bit-bite-spelling"
+        }
+    }
+}
+
+/* 3 */
+{
+    "_id" : ObjectId("5d0a3698b44dc57ef5ec91bd"),
+    "name" : "Computers",
+    "background" : "computers",
+    "popupIntro" : "It has revolutionnized the way we work, play, travel, and communicate. It touches almost every part of our lives, it helped us solve insolvent problems, and send us into space. At the beginning, computers were actually human beings : But as we all know, us human beings do make mistakes. We had a common dream to correct them, that led many brilliant inventors to create the first automated computers.",
+    "toVisitImg" : "englandComputers",
+    "quote" : "The machines have no common sense; they do exactly as they are told, no more and no less. This fact is the hardest concept to grasp when one first tries to use a computer",
+    "quoteAuthor" : "Donald E. Knuth",
+    "childComponents" : {
+        "one" : {
+            "id" : 1,
+            "type" : "Poster",
+            "title" : "How it changed our world",
+            "image" : "univac",
+            "position" : "left",
+            "texts" : {
+                "text1" : "It has revolutionnized the way we work, play, travel, and communicate. It touches almost every part of our lives, it helped us solve insolvent problems, and send us into space."
+            }
+        },
+        "two" : {
+            "id" : 2,
+            "type" : "ImageType",
+            "image" : "computer",
+            "png" : "true",
+            "alt" : "old computer"
+        },
+        "three" : {
+            "id" : 3,
+            "type" : "TextType",
+            "position" : "right",
+            "title" : "The machines we created",
+            "texts" : {
+                "text1" : "Although computers are enormously intricate, their most basic components consist of simple devices that can be switched to either one of two states : ON, or OFF.",
+                "text2" : "The computer creates its magic by calculating with the speed and accuracy that far surpasses its human inventors. It’s all done with the unique partnership of harware, and software.",
+                "text3" : "What are the differences between them ?"
+            },
+            "hints" : {
+                "hint1" : "Softwares are dematerialized : they consist of instructions that tell the computer what to do",
+                "hint2" : "Hardwares are the physical, tangible parts of a computer. This is the machine."
+            }
+        },
+        "four" : {
+            "id" : 4,
+            "type" : "TextType",
+            "position" : "left",
+            "title" : "How we surpassed ourselves",
+            "texts" : {
+                "text1" : "The first “computers” were actually human beings, people who specialized in mathematical computation. They were toiling over their tables incessantly, monotonously and eventually, made mistakes.",
+                "text2" : "This common dream we had since the premises of humanity, to correct our own errors led many brilliant inventors to create the first automated computers. The first of them was Charles Babbage."
+            }
+        },
+        "five" : {
+            "id" : 5,
+            "type" : "ImageType",
+            "image" : "babbage",
+            "png" : "true",
+            "alt" : "Charles Babbage"
+        },
+        "six" : {
+            "id" : 6,
+            "type" : "Video",
+            "videoName" : "Babbage history",
+            "poster" : "babbage-history"
+        },
+        "seven" : {
+            "id" : 7,
+            "type" : "ImageType",
+            "image" : "ceruzzi",
+            "png" : "true",
+            "alt" : "Paul E. CERUZZI",
+            "audio" : "ceruzzi"
+        },
+        "height" : {
+            "id" : 8,
+            "type" : "TextType",
+            "position" : "right",
+            "title" : "How society helped the project",
+            "texts" : {
+                "text1" : "Thanks to the funds of the British Government, Babbage hired a mechanical engineer, set to work on the complete design for the difference engine and immediately ran into difficulties.",
+                "text2" : "What could they be, altough we were in the heart of the Indusrial Revolution at that time ?"
+            },
+            "hints" : {
+                "hint1" : "The mechanical machine tools of the time were not advanced enough to produce parts in the precise measurements that Babbage’s plans required.",
+                "hint2" : "Well, the problems were quickly solved : better machine tools were invented, which eventually improved the entire state of British tool manufacturing, just for building Babbage’s computer."
+            }
+        },
+        "nine" : {
+            "id" : 9,
+            "type" : "Poster",
+            "image" : "babbage-machine",
+            "title" : "Human errors",
+            "position" : "right",
+            "texts" : {
+                "text1" : "Unfortunately, Babbage’s machine was never finished, as he spent the entire ground of the government, as well as his own funds."
+            }
+        },
+        "ten" : {
+            "id" : 10,
+            "type" : "Video",
+            "videoName" : "Babbage work",
+            "poster" : "babbage-work"
+        },
+        "eleven" : {
+            "id" : 11,
+            "type" : "Video",
+            "videoName" : "Colossus",
+            "poster" : "colossus"
+        }
+    }
+}
+
+/* 4 */
+{
+    "_id" : ObjectId("5d0a36d7b44dc57ef5ec9218"),
+    "name" : "Programming",
+    "background" : "programming",
+    "popupIntro" : "Programming is the process of developing and implementing various sets of instructions to enable a computer to do a certain task. These instructions are considered computer programs and help the computer to operate smoothly. The language used to program computers is not understood by an untrained eye. Programming history is tightly connected to computer history, as they are both based on the partnership of harware and software.",
+    "toVisitImg" : "italyProgramming",
+    "quote" : "The computer has the intelligence of the one who uses it.",
+    "quoteAuthor" : "Anonymous",
+    "childComponents" : {
+        "one" : {
+            "id" : 1,
+            "type" : "TextType",
+            "position" : "left",
+            "title" : "Augusta Ada King, Countess of Lovelace",
+            "texts" : {
+                "text1" : "Augusta Ada King, Countess of Lovelace (Byron; 10 December 1815 – 27 November 1852) was an English mathematician and writer, chiefly known for her work on Charles Babbage's proposed mechanical general-purpose computer, the Analytical Engine.",
+                "text2" : "She was the first to recognise that the machine had applications beyond pure calculation, and published the first algorithm intended to be carried out by such a machine.",
+                "text3" : "As a result, she is sometimes regarded as the first to recognise the full potential of a \"computing machine\" and one of the first computer programmers."
+            }
+        },
+        "two" : {
+            "id" : 2,
+            "type" : "ImageType",
+            "image" : "ada-lovelace",
+            "alt" : "Augusta Ada King - Countess of Lovelace"
+        },
+        "three" : {
+            "id" : 3,
+            "type" : "Video",
+            "videoName" : "Ada Lovelace great mind",
+            "poster" : "great-mind"
+        },
+        "four" : {
+            "id" : 4,
+            "type" : "TextType",
+            "position" : "left",
+            "title" : "A great cooperation",
+            "texts" : {
+                "text1" : "When she was a teenager, her mathematical talents led her to a long working relationship and friendship with fellow British mathematician Charles Babbage, also known as \"the father of computers\", and in particular, Babbage's work on the Analytical Engine."
+            }
+        },
+        "five" : {
+            "id" : 5,
+            "type" : "ImageType",
+            "image" : "ada-babbage",
+            "png" : "true",
+            "alt" : "Ada Lovelace and Charles Babbage"
+        },
+        "six" : {
+            "id" : 6,
+            "type" : "ImageType",
+            "image" : "luigi-menabrea",
+            "png" : "true",
+            "alt" : "Luigi Menabrea"
+        },
+        "seven" : {
+            "id" : 7,
+            "type" : "TextType",
+            "position" : "right",
+            "title" : "Luigi Menabrea, also pioneer of programming",
+            "texts" : {
+                "text1" : "Between 1842 and 1843, Ada translated an article by Italian military engineer Luigi Menabrea on the calculating engine, supplementing it with an elaborate set of notes, simply called Notes.",
+                "text2" : "These notes contain what many consider to be the first computer program—that is, an algorithm designed to be carried out by a machine."
+            }
+        },
+        "height" : {
+            "id" : 8,
+            "type" : "TextType",
+            "position" : "left",
+            "title" : "Note A",
+            "texts" : {
+                "text1" : "In Note A, which Lovelace attached to Menabrea’s initial description of the Analytical Engine, Lovelace explained at some length and often in lyrical language the promise of a machine that could perform arbitrary mathematical operations.",
+                "text2" : "She foresaw that a machine like the Analytical Engine wasn’t just limited to numbers and could in fact act on any objects “whose mutual fundamental relations could be expressed by those of the abstract science of operations, and which should be also susceptible of adaptations to the action of the operating notation and mechanism of the engine.”"
+            }
+        },
+        "nine" : {
+            "id" : 9,
+            "type" : "ImageType",
+            "image" : "note-a",
+            "alt" : "Ada Lovelace's A note"
+        },
+        "ten" : {
+            "id" : 10,
+            "type" : "Video",
+            "videoName" : "Ada writings",
+            "poster" : "ada-writings"
+        },
+        "eleven" : {
+            "id" : 11,
+            "type" : "Poster",
+            "image" : "babbage-machine",
+            "title" : "Analytical Engine",
+            "position" : "right",
+            "texts" : {
+                "text1" : "Ada Lovelace added that the machine might one day, for example, compose music. This insight was all the more remarkable given that Menabrea saw the Analytical Engine primarily as a tool for automating “long and arid computation,” which would free up the intellectual capacities of brilliant scientists for more advanced thinking.",
+                "text2" : "The miraculous foresight that Lovelace demonstrated in Note A is one major reason why she is celebrated today."
+            }
+        },
+        "twelve" : {
+            "id" : 12,
+            "type" : "Video",
+            "videoName" : "programming",
+            "poster" : "programmingp3"
+        }
+    }
+}
+
+/* 5 */
+{
+    "_id" : ObjectId("5d0b98d9b44dc57ef5ef31ba"),
+    "name" : "Internet",
+    "background" : "internet",
+    "popupIntro" : "The Internet is the global system of interconnected computer networks that use the Internet protocol suite (TCP/IP) to link devices worldwide. It is a network of networks that consists of private, public, academic, business, and government networks of local to global scope, linked by a broad array of electronic, wireless, and optical networking technologies. As it shapes our modern world todat, Internet became part of our lives as its first ancestor was born only 50 years ago.",
+    "toVisitImg" : "internetUsa",
+    "quote" : "The Internet is the product of a unique combination of military strategy, scientific cooperation and protest innovation.",
+    "quoteAuthor" : "Manuel Castells",
+    "childComponents" : {
+        "one" : {
+            "id" : 1,
+            "type" : "Poster",
+            "image" : "arpanet",
+            "title" : "In the beginning",
+            "position" : "left",
+            "texts" : {
+                "text1" : "The earliest computers were connected directly to terminals used by individual users, typically in the same building or site. Such networks became known as local area networks (LANs).",
+                "text2" : "Networking beyond this scope, known as wide area networks (WANs), emerged during the 1950s and became established during the 1960s."
+            }
+        },
+        "two" : {
+            "id" : 2,
+            "type" : "ImageType",
+            "image" : "licklider",
+            "alt" : "J. C. R. Licklider"
+        },
+        "three" : {
+            "id" : 3,
+            "type" : "TextType",
+            "position" : "right",
+            "title" : "Why we wanted to invent a new information network",
+            "texts" : {
+                "text1" : "In October 1962, Joseph C. R. Licklider, an American computer scientist, was hired as director of the newly established Information Processing Techniques Office(IPTO) within DARPA (Defense Advanced Research Projects Agency), with a mandate to interconnect the United States Department of Defense's main computers at Cheyenne Mountain, the Pentagon, and SAC HQ.",
+                "text2" : "There, he formed an informal group to develop computer research further. He began by writing memos describing a distributed network to the IPTO staff, whom he called \"Members and Affiliates of the Intergalactic Computer Network\"."
+            }
+        },
+        "four" : {
+            "id" : 4,
+            "type" : "TextType",
+            "position" : "left",
+            "title" : " ARPANET : the Advanced Research Projects Agency Network",
+            "texts" : {
+                "text1" : "The engineer Robert Taylor was promoted to the head of the information processing office at DARPA in June 1966. He intended to realize Licklider's ideas of an interconnected networking system. Bringing in Larry Roberts from MIT, he initiated a project to build this network. The first ARPANET link was established between the University of California, Los Angeles, and the Stanford Research Institute at 22:30 hours on October 29, 1969.",
+                "text2" : "ARPANET became the technical core of what would become the Internet that we know today, and a primary tool in developing new technologies : the Network Control Program (NCP, sometimes Network Control Protocol). However, it was not the most efficient protocol : In 1983, NCP was replaced by the more flexible and powerful family of TCP/IP protocols, marking the start of the modern Internet."
+            }
+        },
+        "five" : {
+            "id" : 5,
+            "type" : "Video",
+            "videoName" : "Arpanet USA",
+            "poster" : "arpanet-usa",
+            "size" : "small"
+        },
+        "six" : {
+            "id" : 6,
+            "type" : "Video",
+            "videoName" : "Arpanet history",
+            "poster" : "arpanet-history"
+        },
+        "seven" : {
+            "id" : 7,
+            "type" : "ImageType",
+            "image" : "tcp-ip",
+            "alt" : "protocol tcp/ip"
+        },
+        "seven" : {
+            "id" : 7,
+            "type" : "ImageType",
+            "image" : "vint-cerf",
+            "alt" : "Vint Cerf",
+            "audio" : "tcp-ip"
+        },
+        "height" : {
+            "id" : 8,
+            "type" : "TextType",
+            "position" : "right",
+            "title" : "Our Internet protocole suite : TCP/ IP",
+            "texts" : {
+                "text1" : "The Internet protocol suite is the conceptual model and set of communications protocols used for the Internet and similar computer networks.",
+                "text2" : "It is commonly known as TCP/IP because the foundational protocols in the suite are the Transmission Control Protocol (TCP) and the Internet Protocol (IP).",
+                "text3" : "The protocol was invented by two Internet pioneers : Vint Cerf and Bob Kahn, the 'fathers of the Internet', both egineers working for DARPA projects."
+            }
+        },
+        "nine" : {
+            "id" : 9,
+            "type" : "TextType",
+            "position" : "left",
+            "title" : "When we created the Internet",
+            "texts" : {
+                "text1" : "In 1983, ARPANET detaches itself from the rest of the network and becomes the Internet, which means International Network or Interconnected Network. To continue to develop the Internet, it is the US National Science Foundation, under the initials of NSF, which finances the Backbone of the network.",
+                "text2" : "Other agencies such as NASA, or research agencies and companies from other countries connected their own communication networks to this Backbone, which is the heart of the network. Smaller networks such as businesses need to link to this one so that the information sent out connects to each other."
+            }
+        },
+        "ten" : {
+            "id" : 10,
+            "type" : "ImageType",
+            "image" : "internet-img",
+            "alt" : "invention of internet"
+        },
+        "eleven" : {
+            "id" : 11,
+            "type" : "Video",
+            "videoName" : "world-wide-web",
+            "poster" : "web"
+        }
+    }
+}
